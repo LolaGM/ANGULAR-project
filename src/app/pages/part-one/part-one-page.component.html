@@ -2,7 +2,6 @@
 
 <div class="container">
   <div class="col">
-    <button (click)="display()">Display/Hide</button>
     <a href="https://github.com/LolaGM/ANGULAR-project/tree/main/src/app/components/display"
       target="_blank">
       <svg
@@ -15,10 +14,11 @@
         />
       </svg>
     </a>
+    <button (click)="display()" routerLinkActive="active" >Display / Hide</button>
+    
   </div>
   <div class="col">
-    <button (click)="communication()">Communicating components</button>
-    <a href="https://github.com/LolaGM/ANGULAR-project/tree/main/src/app/components/display"
+    <a href="#"
       target="_blank">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -30,10 +30,10 @@
         />
       </svg>
     </a>
+    <button (click)="communication()">Communicating components</button>    
   </div>
   <div class="col">
-    <button (click)="crud()">CRUD and Form</button>
-    <a href="https://github.com/LolaGM/ANGULAR-project/tree/main/src/app/components/display"
+    <a href="#"
       target="_blank">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -45,11 +45,11 @@
         />
       </svg>
     </a>
+    <button (click)="crud()">CRUD and Form</button>    
   </div>
 
   <div class="col">
-    <button (click)="search()">Search-on type</button>
-    <a href="https://github.com/LolaGM/ANGULAR-project/tree/main/src/app/components/display"
+    <a href="#"
       target="_blank">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -61,6 +61,7 @@
         />
       </svg>
     </a>
+    <button (click)="search()">Search-on type</button>
   </div>
 </div>
 

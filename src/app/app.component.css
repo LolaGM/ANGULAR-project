@@ -1,10 +1,14 @@
 /*Navbar style*/
+li a {
+    font-family: 'Kanit', sans-serif;
+    color: white !important;
+}
 
 .toolbar{
     background-color: #1976d2;
-    color: white;
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .logo-img {

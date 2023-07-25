@@ -27,4 +27,5 @@ export class PartOnePageComponent implements OnInit {
   search(){
     this.router.navigate(['search-on'], {relativeTo:this.route});
   }
+
 }

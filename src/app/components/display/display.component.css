@@ -4,12 +4,13 @@ h5{
     text-align: center;
     color: #1976d2;
 }
+
 .greeting{
     text-align: center;
 }
+
 button {
     text-align: center;
-
     background: #dd1b16; /* color de fondo */
     color: #fff; /* color de fuente */
     border: 3px solid #a6120d; /* tamaño y color de borde */
@@ -47,6 +48,14 @@ button:hover:after {
     transition: all 0.3s ease-out;
     transform: scale(1, 1);
     border: 3px solid #1976d2; /* tamaño y color de borde */
+}
+
+.discover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    
 }
 
 .messageForYou{
