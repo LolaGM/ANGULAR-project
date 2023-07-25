@@ -1,0 +1,16 @@
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+    <span>Display Hide assessment</span>
+</div>
+
+<div class="greeting">
+  <h1>Hello World!</h1>
+</div>
+<div class="discover">
+  <button (click)="displayHide()">
+    {{ visibleMessage ? "Goodbye" : "Who am I?" }}
+  </button>
+</div>
+<div class="messageForYou" *ngIf="visibleMessage" @fadeInOut>
+  <p>{{ messageForYou }}</p>
+</div>

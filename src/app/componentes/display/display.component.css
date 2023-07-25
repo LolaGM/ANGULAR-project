@@ -1,24 +1,5 @@
-/*Navbar style*/
-
-.toolbar{
-    background-color: #1976d2;
-    color: white;
-    display: flex;
-    justify-content: space-around;
-}
-
-.logo-img {
-    margin: 0 5%;
-    width: 100px;
-    
-}
-
-.menu{
-    color:white;
-}
-
-
-.activeMenu {
+/*display hide component style*/
+button {
     background: #dd1b16; /* color de fondo */
     color: #fff; /* color de fuente */
     border: 3px solid #a6120d; /* tamaño y color de borde */
@@ -31,12 +12,12 @@
     font-size: 1.5rem;
 }
 
-.activeMenu:hover, .activeMenu:focus {
+button:hover, .button:focus {
     color: #fff;/* color de fuente hover */
     border: 3px solid #186bbe;
 }
 
-.activeMenu:after{
+button:after{
     content: "";
     background: #1976d2; /* color de fondo hover */
     border: 3px solid #186bbe; /* tamaño y color de borde */
@@ -52,13 +33,8 @@
     transition: all 0.3s ease;
 }
 
-.activeMenu:hover:after {
+button:hover:after {
     transition: all 0.3s ease-out;
     transform: scale(1, 1);
     border: 3px solid #1976d2; /* tamaño y color de borde */
 }
-
-
-
-
-
