@@ -1,27 +1,53 @@
-# AngularProject
+<div style="display:flex; flex-wrap:wrap; justify-content:center; margin:auto">
+   <img style="width:1000px; height:250px; margin:12px" src="https://github.com/LolaGM/ANGULAR-project/assets/116545851/dc9db931-7a1c-4feb-be55-6a98ce502dbe">
+</div>
+<h1>ANGULAR</h1>
+<p>Angular project using ANGULAR framework during internship at Bosonit company</p>
+<h2>1. Contents</h2>
+<ul>
+<li>Display/Hide</li>
+<li>Components communication</li>
+<li>CRUD and Reactive Forms</li>
+<li>Search on typing</li>
+<li>Light Switcher (Traffic Lights)</li>
+<li>External library with public API data: Graphs</li>
+<li>Counter</li>
+</ul>
+<h2>2. Stacks and technologies used</h2>
+<p align="left">    
+   <img src="https://img.shields.io/badge/angular.js-%23E23237.svg?style=for-the-badge&logo=angularjs&logoColor=white"></img>
+   <img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white"></img>
+   <img src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white"></img>
+   <img src="https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white"></img>
+   <img src="https://img.shields.io/badge/Google%20Chrome-4285F4?style=for-the-badge&logo=GoogleChrome&logoColor=white"></img>
+   <img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"></img>   
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
+<h2>3. Visual Studio Code Extensions Used </h2>
+<ol>
+   <li>Angular Snippets</li>
+   <li>Angular Language Service</li>
+   <li>Angular Schematics</li>
+   <li>Angular Snippets (Version 16)</li>
+   <li>Angular2-inline</li>
+   <li>Auto Close Tag</li>
+   <li>Material Icon Theme</li>
+   <li>Paste JSON as Code</li>
+   <li>TypeScript Importer</li>
+   <li>Better Comments</li> 
+</ol>
 
-## Development server
+<h2>4. My GitHub Link</h2>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+<ul dir="auto">
+<li>
+<p dir="auto"><a href="https://github.com/LolaGM" target="_blank">Lola García Morcillo</a> - Developer</p>
+</li>
+</ul>
 
-## Code scaffolding
+<h2>5. Installations</h2>
+<h3>Angular CLI</h3>
+<p>To install the command line interface we use the following command as administrators: <code>npm install -g @angular/cli </code> </p>
+<p>To check the Angular CLI version we use the <code>ng --version command</code></p>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.4.
