@@ -1,10 +1,10 @@
-<h1>Part 2</h1>
+<h1 class="header-title">Part 2</h1>
 
-<div class="container">
+<div class="button-container">
   <div class="col">
     <a href="https://github.com/LolaGM/ANGULAR-project/tree/main/src/app/components/display"
       target="_blank">
-      <svg
+      <svg class="github-icon-svg"
         xmlns="http://www.w3.org/2000/svg"
         height="2em"
         viewBox="0 0 496 512"
@@ -14,12 +14,12 @@
         />
       </svg>
     </a>
-    <button (click)="switcher()">Switcher (Traffic Lights) </button>
+    <button (click)="onClickSwitcher()" class="individual-element-button">Switcher (Traffic Lights) </button>
   </div>
   <div class="col">
     <a href="https://github.com/LolaGM/ANGULAR-project/tree/main/src/app/components/display"
       target="_blank">
-      <svg
+      <svg class="github-icon-svg"
         xmlns="http://www.w3.org/2000/svg"
         height="2em"
         viewBox="0 0 496 512"
@@ -29,12 +29,12 @@
         />
       </svg>
     </a>
-    <button (click)="graphs()">External Library (use of graphs)</button>
+    <button (click)="onClickGraphs()" class="individual-element-button">External Library (use of graphs)</button>
   </div>
   <div class="col">
     <a href="#"
       target="_blank">
-      <svg
+      <svg class="github-icon-svg"
         xmlns="http://www.w3.org/2000/svg"
         height="2em"
         viewBox="0 0 496 512"
@@ -44,10 +44,8 @@
         />
       </svg>
     </a>
-    <button (click)="counter()">Counter</button>
+    <button (click)="onClickCounter()" class="individual-element-button">Counter</button>
   </div>
-
-  
 </div>
 
 <router-outlet></router-outlet>

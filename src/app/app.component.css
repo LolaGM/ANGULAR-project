@@ -1,5 +1,5 @@
 /*Navbar style*/
-li a {
+.navbar-style {
     font-family: 'Kanit', sans-serif;
     color: white !important;
 }
@@ -16,53 +16,3 @@ li a {
     width: 100px;
     
 }
-
-.menu{
-    color:white;
-}
-
-
-.activeMenu {
-    background: #dd1b16; /* color de fondo */
-    color: #fff; /* color de fuente */
-    border: 3px solid #a6120d; /* tamaño y color de borde */
-    padding: 16px 20px;
-    border-radius: 10px; /* redondear bordes */
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    display: inline-block;
-    font-size: 1.5rem;
-}
-
-.activeMenu:hover, .activeMenu:focus {
-    color: #fff;/* color de fuente hover */
-    border: 3px solid #186bbe;
-}
-
-.activeMenu:after{
-    content: "";
-    background: #1976d2; /* color de fondo hover */
-    border: 3px solid #186bbe; /* tamaño y color de borde */
-    position: absolute;
-    z-index: -1;
-    padding: 16px 20px;
-    display: block;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    transform: scale(0, 0);
-    transition: all 0.3s ease;
-}
-
-.activeMenu:hover:after {
-    transition: all 0.3s ease-out;
-    transform: scale(1, 1);
-    border: 3px solid #1976d2; /* tamaño y color de borde */
-}
-
-
-
-
-

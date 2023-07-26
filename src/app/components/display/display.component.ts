@@ -8,10 +8,10 @@ import { Component } from '@angular/core';
 
 export class DisplayComponent {
   
-    visibleMessage:boolean = false;
-    messageForYou:string = 'My name is Lola';
+  public visibleMessage:boolean = false;
+  public messageForYou:string = 'My name is Lola';
 
-    displayHide(){
-      this.visibleMessage = !this.visibleMessage;
-    }
+  displayHide(){
+    this.visibleMessage = !this.visibleMessage;
+  }
 }

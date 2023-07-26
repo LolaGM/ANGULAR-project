@@ -9,21 +9,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class PartTwoPageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router) { }
-  ngOnInit(): void {
-    }
 
-  switcher(){
+  ngOnInit(): void {
+  }
+
+  onClickSwitcher(){
       this.router.navigate(['switcher'], {relativeTo:this.route});
   }
 
-  graphs(){
+  onClickGraphs(){
       this.router.navigate(['graphs'], {relativeTo:this.route});
   }
 
-  counter(){
+  onClickCounter(){
     this.router.navigate(['counter'], {relativeTo:this.route});
   }
 
- 
 }
 

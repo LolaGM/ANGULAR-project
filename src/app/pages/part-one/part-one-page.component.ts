@@ -12,19 +12,19 @@ export class PartOnePageComponent implements OnInit {
   ngOnInit(): void {
     }
 
-  display(){
-      this.router.navigate(['display'], {relativeTo:this.route});
+  onClickDisplay(){
+      this.router.navigate(['display'],  {relativeTo:this.route});
   }
 
-  communication(){
+  onClickCommunication(){
       this.router.navigate(['communication'], {relativeTo:this.route});
   }
 
-  crud(){
+  onClickCrud(){
     this.router.navigate(['crud-form'], {relativeTo:this.route});
   }
 
-  search(){
+  onClickSearch(){
     this.router.navigate(['search-on'], {relativeTo:this.route});
   }
 

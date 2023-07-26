@@ -1,15 +1,18 @@
 /*display hide component style*/
-h5{
-    margin-top: 2%;
+.title-component{
+    margin-top: 5%;
     text-align: center;
     color: #1976d2;
+    font-family: 'Kanit', sans-serif;
 }
 
 .greeting{
     text-align: center;
+    font-family: 'Kanit', sans-serif;
 }
 
-button {
+.display-hide-button {
+    font-family: 'Kanit', sans-serif;
     text-align: center;
     background: #dd1b16; /* color de fondo */
     color: #fff; /* color de fuente */
@@ -23,15 +26,16 @@ button {
     font-size: 1.5rem;
 }
 
-button:hover, .button:focus {
+.display-hide-button:hover, .display-hide-button:focus {
     color: #fff;/* color de fuente hover */
     border: 3px solid #186bbe;
+    font-family: 'Kanit', sans-serif;
 }
 
-button:after{
+.display-hide-button:after{
+    font-family: 'Kanit', sans-serif;
     content: "";
     background: #1976d2; /* color de fondo hover */
-    border: 3px solid #186bbe; /* tamaño y color de borde */
     position: absolute;
     z-index: -1;
     padding: 16px 20px;
@@ -44,7 +48,7 @@ button:after{
     transition: all 0.3s ease;
 }
 
-button:hover:after {
+.display-hide-button:hover:after {
     transition: all 0.3s ease-out;
     transform: scale(1, 1);
     border: 3px solid #1976d2; /* tamaño y color de borde */
@@ -53,13 +57,15 @@ button:hover:after {
 .discover{
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-top: 5%;
-    
+    align-items: center;    
 }
 
 .messageForYou{
+    margin-top: 2%;
+    color: #1976d2;
+    font-family: 'Kanit', sans-serif;
+    font-size: 2rem;
     display: flex;
     justify-content: center;
-    margin-top: 2%;
+    align-items: center;    
 }

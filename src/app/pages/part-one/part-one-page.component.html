@@ -1,10 +1,10 @@
-<h1>Part 1</h1>
+<h1 class="header-title">Part 1</h1>
 
-<div class="container">
+<div class="button-container">
   <div class="col">
     <a href="https://github.com/LolaGM/ANGULAR-project/tree/main/src/app/components/display"
       target="_blank">
-      <svg
+      <svg class="github-icon-svg"
         xmlns="http://www.w3.org/2000/svg"
         height="2em"
         viewBox="0 0 496 512"
@@ -14,13 +14,13 @@
         />
       </svg>
     </a>
-    <button (click)="display()" routerLinkActive="active" >Display / Hide</button>
+    <button (click)="onClickDisplay()" class="individual-element-button" routerLinkActive="active" >Display / Hide</button>
     
   </div>
   <div class="col">
     <a href="#"
       target="_blank">
-      <svg
+      <svg class="github-icon-svg"
         xmlns="http://www.w3.org/2000/svg"
         height="2em"
         viewBox="0 0 496 512"
@@ -30,12 +30,12 @@
         />
       </svg>
     </a>
-    <button (click)="communication()">Communicating components</button>    
+  <button (click)="onClickCommunication()" class="individual-element-button">Communicating components</button>    
   </div>
   <div class="col">
     <a href="#"
       target="_blank">
-      <svg
+      <svg class="github-icon-svg"
         xmlns="http://www.w3.org/2000/svg"
         height="2em"
         viewBox="0 0 496 512"
@@ -45,13 +45,13 @@
         />
       </svg>
     </a>
-    <button (click)="crud()">CRUD and Form</button>    
+    <button (click)="onClickCrud()" class="individual-element-button">CRUD and Form</button>    
   </div>
 
   <div class="col">
     <a href="#"
       target="_blank">
-      <svg
+      <svg class="github-icon-svg"
         xmlns="http://www.w3.org/2000/svg"
         height="2em"
         viewBox="0 0 496 512"
@@ -61,7 +61,7 @@
         />
       </svg>
     </a>
-    <button (click)="search()">Search-on type</button>
+    <button (click)="onClickSearch()" class="individual-element-button">Search-on type</button>
   </div>
 </div>
 

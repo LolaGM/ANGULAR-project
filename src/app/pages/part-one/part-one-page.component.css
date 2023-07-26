@@ -1,18 +1,19 @@
-h1{
+.header-title{
     margin-top: 2%;
     margin-bottom: 2%;
     text-align: center;
     font-family: 'Kanit', sans-serif;
 }
 
-.container{
+.button-container{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     vertical-align: center;
+    margin: 0 15%;
 }
 
-button{
+.individual-element-button{
     font-family: 'Kanit', sans-serif;
     background: #1976d2;
     color: #fff;
@@ -25,9 +26,18 @@ button{
     transition: color 0.4s linear;    
 }
 
-svg{
+.individual-element-button:hover{
+    background: grey;
+}
+
+
+.individual-element-button:active{
+    background: black;
+}
+
+
+.github-icon-svg{
     margin-right: 5px;
-    color: #1976d2;
 }
 
 
