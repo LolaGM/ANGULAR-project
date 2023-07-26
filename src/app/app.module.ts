@@ -15,6 +15,8 @@ import { SearchOnComponent } from './components/search-on/search-on.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { GraphsComponent } from './components/graphs/graphs.component';
 import { SwitcherComponent } from './components/switcher/switcher.component';
+import { ChildComponent } from './components/communication/child/child.component';
+import { ParentComponent } from './components/communication/parent/parent.component';
 
 @NgModule({
   declarations: [
@@ -23,11 +25,13 @@ import { SwitcherComponent } from './components/switcher/switcher.component';
     PartTwoPageComponent,
     DisplayComponent,
     CommunicationComponent,
+    ChildComponent,
+    ParentComponent,
     CrudFormComponent,
     SearchOnComponent,
     CounterComponent,
     GraphsComponent,
-    SwitcherComponent
+    SwitcherComponent,   
 
   ],
   imports: [

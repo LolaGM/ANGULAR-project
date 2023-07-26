@@ -1,0 +1,14 @@
+.parent-container{
+    margin-top: 2%;
+    margin-left: 12%;
+    margin-right: 12%;
+    border: 2px solid #1976d2;
+    border-radius: 5px;
+    padding: 2%;
+}
+
+.communication-type{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

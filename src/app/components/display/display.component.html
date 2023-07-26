@@ -10,6 +10,6 @@
     {{ visibleMessage ? "Goodbye" : "Who am I?" }}
   </button>
 </div>
-<div class="messageForYou" *ngIf="visibleMessage">
+<div class="animate__animated animate__backInDown" *ngIf="visibleMessage">
   <p>{{ messageForYou }}</p>
 </div>

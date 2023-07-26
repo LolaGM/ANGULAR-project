@@ -1,0 +1,19 @@
+<div class="parent-container">
+    <h1>PARENT</h1>
+    <h5>message received from CHILD: {{ messageReceivedUsingOutput }}</h5>
+
+    <div class="communication-type">
+        <button class="btn btn-primary">Use Service</button>
+        <button (click)="sendMessageUsingInput()" class="btn btn-primary">
+            Use Input Property
+        </button>
+        <button class="btn btn-primary">Use Observables</button>
+    </div>
+
+    <div>
+    <app-child
+        [message]="messageToChildUsingInput"
+        (messageToParentUsingOutput)="receiveMessageFromChildUsingOutput($event)"
+    ></app-child>
+    </div>
+</div>

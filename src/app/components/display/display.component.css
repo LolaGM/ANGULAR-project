@@ -7,6 +7,8 @@
 }
 
 .greeting{
+    margin-top: 2%;
+    margin-bottom: 2%;
     text-align: center;
     font-family: 'Kanit', sans-serif;
 }
@@ -16,7 +18,6 @@
     text-align: center;
     background: #dd1b16; /* color de fondo */
     color: #fff; /* color de fuente */
-    border: 3px solid #a6120d; /* tamaño y color de borde */
     padding: 16px 20px;
     border-radius: 10px; /* redondear bordes */
     position: relative;
@@ -28,7 +29,6 @@
 
 .display-hide-button:hover, .display-hide-button:focus {
     color: #fff;/* color de fuente hover */
-    border: 3px solid #186bbe;
     font-family: 'Kanit', sans-serif;
 }
 
@@ -51,7 +51,6 @@
 .display-hide-button:hover:after {
     transition: all 0.3s ease-out;
     transform: scale(1, 1);
-    border: 3px solid #1976d2; /* tamaño y color de borde */
 }
 
 .discover{
@@ -60,11 +59,12 @@
     align-items: center;    
 }
 
-.messageForYou{
+/*animated CSS*/
+.animate__animated{
     margin-top: 2%;
     color: #1976d2;
     font-family: 'Kanit', sans-serif;
-    font-size: 2rem;
+    font-size: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;    
