@@ -28,5 +28,17 @@ export class ChildComponent {
     this.communicationService.setMessageFromChild(messageFromChild);
   }
 
+  //OBSERVABLE hijo-padre evento click
+  onClickButtonObservableChild() {
+    this.communicationService.sendMessageToChild('CHILD USING OBSERVABLE');
+  }
+
+  //completar el OBSERVABLE
+  ngOnDestroy(): void {
+    this.communicationService.getObservableChild().complete();
+    
+  }
+
+
 
 }

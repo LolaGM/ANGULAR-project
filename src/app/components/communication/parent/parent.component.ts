@@ -20,6 +20,15 @@ export class ParentComponent {
   //SERVICE inyectado en componente
   constructor(private communicationService: CommunicationService) { } 
 
+  //onInit del OBSERVABLE
+  ngOnInit() {
+    this.communicationService.getObservableChild()
+      .subscribe((message: string) => {
+        this.messageFromChild = message;
+    });
+  }
+
+
   //INPUT método para enviar mensaje al hijo
   sendMessageUsingInput() {
     this.messageToChild = 'PARENT USING INPUT PROPERTY';
@@ -33,6 +42,17 @@ export class ParentComponent {
   //SERVICE método para recibir mensaje del hijo
   receiveMessageFromChildUsingService() {
     this.messageFromChild = this.communicationService.getMessageFromChild();
+  }
+
+  //OBSERVABLE padre-hijo
+  onClickButtonObservableParent(){
+    this.communicationService.sendMessageToParent('PARENT USING OBSERVABLE');
+  }
+
+  //completar el OBSERVABLE
+  ngOnDestroy(): void {
+    this.communicationService.getObservableParent().complete();
+    
   }
 }
 

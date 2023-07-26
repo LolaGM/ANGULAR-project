@@ -26,7 +26,7 @@ export class CommunicationService {
   }
 
   //OBSERVABLE padre
-  getParentObservable() {
+  getObservableParent() {
     return this.messageFromParentUsingObservable$;
   }
 
@@ -35,7 +35,7 @@ export class CommunicationService {
   }
 
   //OBSERVABLE hijo
-  getChildObservable() {
+  getObservableChild() {
     return this.messageFromChildUsingObservable$;
   }
 

@@ -6,6 +6,8 @@ import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 
+import { CommunicationService } from './services/communication.service';
+
 import { PartOnePageComponent } from './pages/part-one/part-one-page.component';
 import { PartTwoPageComponent } from './pages/part-two/part-two-page.component';
 import { DisplayComponent } from './components/display/display.component';
@@ -17,7 +19,8 @@ import { GraphsComponent } from './components/graphs/graphs.component';
 import { SwitcherComponent } from './components/switcher/switcher.component';
 import { ChildComponent } from './components/communication/child/child.component';
 import { ParentComponent } from './components/communication/parent/parent.component';
-import { CommunicationService } from './services/communication.service';
+import { FormComponent } from './components/crud-form/form/form.component';
+import { ListComponent } from './components/crud-form/list/list.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { CommunicationService } from './services/communication.service';
     SearchOnComponent,
     CounterComponent,
     GraphsComponent,
-    SwitcherComponent,   
+    SwitcherComponent,
+    FormComponent,
+    ListComponent,   
 
   ],
   imports: [
