@@ -3,6 +3,7 @@
     border: 2px solid #1976d2;
     border-radius: 5px;
     padding: 2%;
+    font-family: 'Kanit', sans-serif;
 }
 
 
@@ -10,4 +11,5 @@
     display: flex;
     flex-direction: row;
     justify-content:space-evenly;
+    margin-top: 2%;
 }

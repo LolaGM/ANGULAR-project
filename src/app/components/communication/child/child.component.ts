@@ -9,28 +9,24 @@ import { CommunicationService } from 'src/app/services/communication.service';
 export class ChildComponent {
 
   //INPUT padre-hijo
-  @Input() message: string = '';
+  @Input() messageToParent: string = '';
 
   //OUTPUT hijo-padre con un emisor de evento de tipo string
   @Output() messageToParentUsingOutput: EventEmitter<string> = new EventEmitter<string>();
 
-  //SERVICE propiedad
-/*   public messageToParentUsingService:string =''; */
-
   //SERVICE inyectado en componente
-/*   constructor(private communicationService: CommunicationService) {
-    this.messageToParentUsingService = this.communicationService.getMessageFromParentUsingService();
-  } */
+  constructor(private communicationService: CommunicationService) { } 
 
-  //OUTPUT método que envía mensaje con el texto dado
+  //OUTPUT método que envía mensaje con el texto dado usando EMIT
   sendMessageToParentUsingOutput() {    
     this.messageToParentUsingOutput.emit('CHILD USING OUTPUT EVENT');
   } 
 
-  //SERVICE método que envía mensaje 
-  /*  sendMessageFromChildUsingService() {
-    this.communicationService.setMessageFromChildUsingService('CHILD USING SERVICE')
-  } */
+  //SERVICE método que envía mensaje hijo-padre usando emit
+  onClickSendMessageUsingService() {
+    const messageFromChild = 'CHILD USING SERVICE';
+    this.communicationService.setMessageFromChild(messageFromChild);
+  }
 
 
 }

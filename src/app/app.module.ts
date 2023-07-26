@@ -17,6 +17,7 @@ import { GraphsComponent } from './components/graphs/graphs.component';
 import { SwitcherComponent } from './components/switcher/switcher.component';
 import { ChildComponent } from './components/communication/child/child.component';
 import { ParentComponent } from './components/communication/parent/parent.component';
+import { CommunicationService } from './services/communication.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,9 @@ import { ParentComponent } from './components/communication/parent/parent.compon
     CommonModule    
   ],  
   
-  providers: [],
+  providers: [
+    CommunicationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

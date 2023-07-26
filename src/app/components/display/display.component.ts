@@ -11,7 +11,7 @@ export class DisplayComponent {
   public visibleMessage:boolean = false;
   public messageForYou:string = 'My name is Lola';
 
-  displayHide(){
+  onClickDisplayHide(){
     this.visibleMessage = !this.visibleMessage;
   }
 }
