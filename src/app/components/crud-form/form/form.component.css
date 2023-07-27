@@ -1,3 +1,14 @@
+.form-title{
+    color: #1976d2;
+    font-family: 'Kanit', sans-serif;
+}
+
+.container-form{
+    font-family: 'Kanit', sans-serif;
+
+}
+
 .form-label-name{
     margin-top: 2px;
 }
+
