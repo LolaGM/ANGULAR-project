@@ -1,32 +1,45 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { CommunicationService } from 'src/app/services/communication.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css']
 })
-export class ChildComponent {
+export class ChildComponent implements OnDestroy{
 
-  //INPUT padre-hijo
-  @Input() messageToParent: string = '';
+  //INPUT
+  @Input() receivedMessage: string = '';
 
   //OUTPUT hijo-padre con un emisor de evento de tipo string
-  @Output() messageToParentUsingOutput: EventEmitter<string> = new EventEmitter<string>();
+  @Output() messageToParent = new EventEmitter<string>();
 
-  //SERVICE inyectado en componente
-  constructor(private communicationService: CommunicationService) { 
-    
-  } 
+  //la propiedad es opcional y permite que sea undefined al principio
+  private subscription?: Subscription;
 
-  //OUTPUT método que envía mensaje con el texto dado usando EMIT
-  sendMessageToParentUsingOutput() {    
-    this.messageToParentUsingOutput.emit('CHILD USING OUTPUT EVENT');
-  } 
+  constructor(private communicationService: CommunicationService) {
+    this.subscription = this.communicationService.getMessage()
+      .subscribe(message => {
+        this.receivedMessage = message;
+    });
+  }
 
-  //SERVICE método que envía mensaje hijo-padre
-  onClickSendMessageUsingService() {
-    this.communicationService.setMessageUsingService('CHILD USING SERVICE');
+  //acabar la suscripcion del obserbvable
+  ngOnDestroy() {
+    this.subscription?.unsubscribe();
+  }
+
+  //OUTPUT hijo-padre
+  sendMessageToParentUsingOutput() {
+    const message = 'Child using Output OK';
+    this.messageToParent.emit(message);
+  }
+
+  //SERVICE hijo-padre
+  sendMessageToParentUsingService() {
+    const message = 'Child using Service OK';
+    this.messageToParent.emit(message);
   }
 
   //OBSERVABLE hijo-padre evento click
@@ -34,8 +47,9 @@ export class ChildComponent {
     this.communicationService.sendMessageToParent('CHILD USING OBSERVABLE');
   }
 
-  //completar el OBSERVABLE
-  
+
+
+
 
 
 

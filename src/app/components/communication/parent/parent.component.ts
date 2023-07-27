@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CommunicationService } from 'src/app/services/communication.service';
 
 @Component({
@@ -6,50 +7,38 @@ import { CommunicationService } from 'src/app/services/communication.service';
   templateUrl: './parent.component.html',
   styleUrls: ['./parent.component.css']
 })
-export class ParentComponent {
+export class ParentComponent implements OnDestroy {
 
-  //INPUT 
-  public messageToChild:string = '';
+  public receivedMessage:string = '';
+  public receivedMessageFromChild:string = '';
+  private subscription?: Subscription;
+ 
 
-  //SERVICE
-  public messageFromChild:string = '';
+  constructor(private communicationService: CommunicationService){}
 
-  //OUTPUT
-  public messageReceivedUsingOutput:string = '';
-
-  //SERVICE inyectado en componente
-  constructor(private communicationService: CommunicationService) { } 
-
-  //onInit del OBSERVABLE
-  ngOnInit() {
-    this.communicationService.getObservableChild()
-      .subscribe((message: string) => {
-        this.messageFromChild = message;
-    });
+  sendServiceMessage(){
+    this.communicationService.sendMessageToChild('Parent using service')
   }
 
-
-  //INPUT método para enviar mensaje al hijo
-  sendMessageUsingInput() {
-    this.messageToChild = 'PARENT USING INPUT PROPERTY';
+  ngOnDestroy() {
+    this.subscription?.unsubscribe();
   }
 
-  //OUTPUT método para recibir mensaje del hijo
-  receiveMessageFromChildUsingOutput(messageReceivedFromChild:string): void {
-    this.messageReceivedUsingOutput = messageReceivedFromChild;
-  }
-  
-  //SERVICE método para recibir mensaje del hijo
-  onClickSendMessageUsingService() {
-    this.communicationService.setMessageUsingService('PARENT USING SERVICE');
+  sendMessageToChildInputOutput() {
+    this.receivedMessage = 'Parent using Input OK';
   }
 
-  //OBSERVABLE padre-hijo
-  onClickButtonSendObservableToChild(){
-    this.communicationService.sendMessageToChild('PARENT USING OBSERVABLE');
+  sendMessageToChildService() {
+    this.communicationService.sendMessageToChild('Parent using Service OK');
   }
 
-  //completar el OBSERVABLE
-  
+  sendObservableMessage(){
+    this.communicationService.sendMessageToChild('Parent using observable OK');
+  }
+
+  receiveMessageFromChild(message: string) {
+    this.receivedMessageFromChild = message;
+  }
+
 }
 

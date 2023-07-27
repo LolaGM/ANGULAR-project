@@ -44,11 +44,11 @@ import { ListComponent } from './components/crud-form/list/list.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,    
-    CommonModule    
+    CommonModule,
   ],  
   
   providers: [ //agregamos el servicio dentro de proveedores
-    CommunicationService
+  CommunicationService
   ],
   bootstrap: [AppComponent]
 })

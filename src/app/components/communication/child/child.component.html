@@ -1,8 +1,8 @@
 <div class="childContainer">
     <h3>CHILD</h3>
-    <h5>message received from parent : {{ messageToParent }}</h5>
+    <h5>message received from parent : {{ receivedMessage }}</h5>
     <div class="communicationType">
-        <button (click)="onClickSendMessageUsingService()" class="btn btn-primary">Use Service</button>
+        <button (click)="sendMessageToParentUsingService()" class="btn btn-primary">Use Service</button>
         <button (click)="sendMessageToParentUsingOutput()" class="btn btn-primary">
         Use Output Property
         </button>
