@@ -40,19 +40,16 @@ export class ParentComponent {
   }
   
   //SERVICE método para recibir mensaje del hijo
-  receiveMessageFromChildUsingService() {
-    this.messageFromChild = this.communicationService.getMessageFromChild();
+  onClickSendMessageUsingService() {
+    this.communicationService.setMessageUsingService('PARENT USING SERVICE');
   }
 
   //OBSERVABLE padre-hijo
-  onClickButtonObservableParent(){
-    this.communicationService.sendMessageToParent('PARENT USING OBSERVABLE');
+  onClickButtonSendObservableToChild(){
+    this.communicationService.sendMessageToChild('PARENT USING OBSERVABLE');
   }
 
   //completar el OBSERVABLE
-  ngOnDestroy(): void {
-    this.communicationService.getObservableParent().complete();
-    
-  }
+  
 }
 

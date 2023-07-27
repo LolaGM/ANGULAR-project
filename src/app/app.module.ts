@@ -47,7 +47,7 @@ import { ListComponent } from './components/crud-form/list/list.component';
     CommonModule    
   ],  
   
-  providers: [
+  providers: [ //agregamos el servicio dentro de proveedores
     CommunicationService
   ],
   bootstrap: [AppComponent]

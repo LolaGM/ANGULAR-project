@@ -8,26 +8,25 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CommunicationService {
 
-  //SERVICE mensajes que se llamarán con método en cada componente
-  public messageFromParentUsingService:string = 'PARENT USING SERVICE';  
-  public messageFromChildUsingService:string = 'CHILD USING SERVICE'; 
+  //SERVICE mensaje vacío
+  public messageUsingService:string = '';  
 
   //OBSERVABLE mensajes
-  public messageFromParentUsingObservable$:BehaviorSubject<string> = new BehaviorSubject('');
-  public messageFromChildUsingObservable$:BehaviorSubject<string>  = new BehaviorSubject('');
+  private messageFromParentUsingObservable$ = new BehaviorSubject<string>('');
+  private messageFromChildUsingObservable$ = new BehaviorSubject<string>('');
 
   //SERVICIO para enviar mensaje hijo-padre
-  getMessageFromChild(): string {
-    return this.messageFromChildUsingService;
+  getMessageUsingService(): string {
+    return this.messageUsingService;
   }
 
-  setMessageFromChild(message: string): void {
-    this.messageFromChildUsingService = message;  
+  setMessageUsingService(message: string): void {
+    this.messageUsingService = message;  
   }
 
   //OBSERVABLE padre
   getObservableParent() {
-    return this.messageFromParentUsingObservable$;
+    return this.messageFromParentUsingObservable$.asObservable();
   }
 
   sendMessageToParent(message:string){
@@ -36,7 +35,7 @@ export class CommunicationService {
 
   //OBSERVABLE hijo
   getObservableChild() {
-    return this.messageFromChildUsingObservable$;
+    return this.messageFromChildUsingObservable$.asObservable();
   }
 
   sendMessageToChild(message:string){

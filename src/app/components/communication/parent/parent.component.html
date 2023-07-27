@@ -1,13 +1,17 @@
 <div class="parent-container">
     <h3>PARENT</h3>
     <h5>message received from child: {{ messageReceivedUsingOutput }}</h5>
+    <h5>message received from child: {{ messageUsingService }}</h5>
+
+
+
 
     <div class="communication-type">
-        <button (click)="receiveMessageFromChildUsingService()" class="btn btn-primary">Use Service</button>
+        <button (click)="onClickSendMessageUsingService()" class="btn btn-primary">Use Service</button>
         <button (click)="sendMessageUsingInput()" class="btn btn-primary">
             Use Input Property
         </button>
-        <button (click)="onClickButtonObservableParent()" class="btn btn-primary">Use Observables</button>
+        <button (click)="onClickButtonSendObservableToChild()" class="btn btn-primary">Use Observables</button>
     </div>
 
     <div>
