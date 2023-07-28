@@ -36,16 +36,14 @@ export class ChildComponent implements OnDestroy{
     this.messageToParent.emit(message);
   }
 
-  //SERVICE hijo-padre
-  onClickSendMessageToParentUsingService() {
-    const message = 'Child using Service';
-    this.messageToParent.emit(message);
+  //SERVICE hijo-padre por servicio donde encontrará el mensaje ya escrito que tiene que pasar
+  sendServiceMessage(){
+    
   }
 
   //OBSERVABLE hijo-padre evento click
   onClickSendObservableToParent() {
-    const message = 'Child using Observable';
-    this.messageToParent.emit(message);
+    this.communicationService.sendMessageToParentByObservable('Child using Observable');
   }
 
 }

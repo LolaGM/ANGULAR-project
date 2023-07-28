@@ -11,13 +11,24 @@ export class CommunicationService {
   //propiedad privada que contiene una instancia de Behaviour Subject(observable behaviour subject como fuente de datos que emite valores a los observadores) y le pasamos valor inicial vacío
   private messageSubject = new BehaviorSubject<string>('');
 
-  //método del SERVICIO para enviar al hijo desde el padre: llaman al método NEXT del observable que permite enviar mensaje al observador
-  sendMessageToChild(message: string) {
+  //método del SERVICIO para enviar al hijo desde el padre: 
+  sendMessageToParentByService(){
+    
+  }
+
+  //método del SERVICIO para enviar al hijo desde el padre: 
+  sendMessageToChildByService(){
+    
+  }
+
+
+  //OBSERVABLE método padre-hijo que en el componente propio contiene 'mensaje'
+  sendMessageToChildByObservable(message: string) {
     this.messageSubject.next(message);
   }
 
-  //método para enviar al hijo desde el padre
-  sendMessageToParent(message: string) {
+  //OBSERVABLE método hijo-padre que en el componente propio contiene 'mensaje'
+  sendMessageToParentByObservable(message: string) {
     this.messageSubject.next(message);
   }
 
