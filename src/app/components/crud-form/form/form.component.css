@@ -5,6 +5,7 @@
 
 .container-form{
     font-family: 'Kanit', sans-serif;
+    display: flex;
 
 }
 
