@@ -26,19 +26,21 @@ export class ParentComponent implements OnDestroy {
   }
 
   //INPUT método para enviar mensaje 
-  sendMessageToChildInputOutput() {
+  onClickSendMessageToChildInputOutput() {
     this.receivedMessage = 'Parent using Input';
   }
 
   //SERVICIO método que convoca al servicio y su método y le pasa el valor del mensaje
-  sendMessageToChildService() {
+  onClickSendMessageToChildService() {
     this.communicationService.sendMessageToChild('Parent using Service');
   }
 
-  sendObservableMessage(){
+  //OBSERVABLE
+  onClickSendObservableMessage(){
     this.communicationService.sendMessageToChild('Parent using observable');
   }
 
+  //OUTPUT
   receiveMessageFromChild(message: string) {
     this.receivedMessageFromChild = message;
   }

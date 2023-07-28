@@ -31,19 +31,19 @@ export class ChildComponent implements OnDestroy{
   }
 
   //OUTPUT hijo-padre
-  sendMessageToParentUsingOutput() {
+  onClickSendMessageToParentUsingOutput() {
     const message = 'Child using Output';
     this.messageToParent.emit(message);
   }
 
   //SERVICE hijo-padre
-  sendMessageToParentUsingService() {
+  onClickSendMessageToParentUsingService() {
     const message = 'Child using Service';
     this.messageToParent.emit(message);
   }
 
   //OBSERVABLE hijo-padre evento click
-  onClickButtonSendObservableToParent() {
+  onClickSendObservableToParent() {
     const message = 'Child using Observable';
     this.messageToParent.emit(message);
   }

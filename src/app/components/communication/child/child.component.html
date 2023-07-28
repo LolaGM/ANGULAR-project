@@ -3,10 +3,10 @@
     <h5>message received from parent : {{ receivedMessage }}</h5>
     
     <div class="communicationType">
-        <button (click)="sendMessageToParentUsingService()" class="btn btn-primary">Use Service</button>
-        <button (click)="sendMessageToParentUsingOutput()" class="btn btn-primary">
+        <button (click)="onClickSendMessageToParentUsingService()" class="btn btn-primary">Use Service</button>
+        <button (click)="onClickSendMessageToParentUsingOutput()" class="btn btn-primary">
         Use Output Property
         </button>
-        <button (click)="onClickButtonSendObservableToParent()" class="btn btn-primary">Use Observables</button>
+        <button (click)="onClickSendObservableToParent()" class="btn btn-primary">Use Observables</button>
     </div>
 </div>
