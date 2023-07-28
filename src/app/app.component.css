@@ -2,10 +2,11 @@
 .navbar-style {
     font-family: 'Kanit', sans-serif;
     color: white !important;
+    font-size: 1.3rem;
 }
 
 .toolbar{
-    background-color: #1976d2;
+    background-color: #0275d8;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -13,6 +14,5 @@
 
 .logo-img {
     margin: 0 5%;
-    width: 100px;
-    
+    width: 100px;    
 }

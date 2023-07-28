@@ -13,13 +13,13 @@ export class ParentComponent implements OnDestroy {
   public receivedMessageFromChild:string = '';
   private subscription?: Subscription; //suscripción opcional 
 
-  constructor(private communicationService: CommunicationService){} //importaciÓn del servicio
-
-  //enviar mensaje padre-hijo por servicio donde encontrará el mensaje ya escrito que tiene que pasar
-  sendServiceMessage(){
-    
+  constructor(private communicationService: CommunicationService) {
+    this.subscription = this.communicationService.getMessage()
+      .subscribe(message => {
+        this.receivedMessage = message;
+    });
   }
-
+ 
   // desuscribirnos del observable al que nos suscribimos anteriormente
   ngOnDestroy() {
     this.subscription?.unsubscribe();
@@ -27,22 +27,23 @@ export class ParentComponent implements OnDestroy {
 
   //INPUT método para enviar mensaje 
   onClickSendMessageToChildInputOutput() {
-    this.receivedMessage = 'Parent using Input';
+    this.receivedMessage = 'Parent using Input OK';
   }
 
-  //OUTPUT
+  //OUTPUT método prara recibir el padre el mensaje del hijo (el hijo tendrá otro método de enviar)
   receiveMessageFromChild(message: string) {
     this.receivedMessageFromChild = message;
   }
 
    //SERVICIO método que convoca al servicio y su método y le pasa el valor del mensaje
-   /* onClickSendMessageToChildService() {
-    
-  } */
+  onClickSendMessageToChildUsingService() {
+    this.communicationService.sendMessageToChild();
+    this.receivedMessage = this.communicationService.getMessageToChild();
+  }
 
   //OBSERVABLE que invoca al servicio y el propio componente
-  onClickSendObservableToChild(){
-    this.communicationService.sendMessageToChildByObservable('Parent using observable');
+  onClickSendMessageToChildUsingObservable(){
+    this.communicationService.sendMessageToChildByObservable('Parent using observable OK');
   }
 
 }

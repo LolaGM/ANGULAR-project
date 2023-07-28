@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 //no olvidemos importar en app module el servicio
 
@@ -8,19 +8,31 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CommunicationService {
 
-  //propiedad privada que contiene una instancia de Behaviour Subject(observable behaviour subject como fuente de datos que emite valores a los observadores) y le pasamos valor inicial vacío
-  private messageSubject = new BehaviorSubject<string>('');
+  private messageToParent: string = '';
+  private messageToChild: string = '';
 
-  //método del SERVICIO para enviar al hijo desde el padre: 
-  sendMessageToParentByService(){
-    
+  //propiedad privada que contiene una instancia de Behaviour Subject y le pasamos valor inicial vacío
+  private messageSubject = new BehaviorSubject<string>(''); //(observable behaviour subject como fuente de datos que emite valores a los observadores)
+
+   // Método para obtener el mensaje que se enviará al componente padre
+   getMessageToParent(): string {
+    return this.messageToParent;
   }
 
-  //método del SERVICIO para enviar al hijo desde el padre: 
-  sendMessageToChildByService(){
-    
+  // Método para obtener el mensaje que se enviará al componente hijo
+  getMessageToChild(): string {
+    return this.messageToChild;
   }
 
+  // Método para enviar el mensaje desde el componente hijo al servicio y actualizar el mensaje del componente padre
+  sendMessageToParent() {
+    this.messageToParent = 'Child using service to send a message to Parent';
+  }
+
+  // Método para enviar el mensaje desde el componente padre al servicio y actualizar el mensaje del componente hijo
+  sendMessageToChild() {
+    this.messageToChild = 'Parent using service OK';
+  }
 
   //OBSERVABLE método padre-hijo que en el componente propio contiene 'mensaje'
   sendMessageToChildByObservable(message: string) {
@@ -33,7 +45,7 @@ export class CommunicationService {
   }
 
   //método que devuelve el messageSubject como observable: los componentes se suscriben para recibir mensajes pero no emiten
-  getMessage() {
+  getMessage(): Observable<string> {
     return this.messageSubject.asObservable();
   }
   

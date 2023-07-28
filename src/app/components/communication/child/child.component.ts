@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 })
 export class ChildComponent implements OnDestroy{
 
+  
   //INPUT
   @Input() receivedMessage: string = '';
 
@@ -19,12 +20,16 @@ export class ChildComponent implements OnDestroy{
   private subscription?: Subscription;
 
   constructor(private communicationService: CommunicationService) {
+    //observable
     this.subscription = this.communicationService.getMessage()
       .subscribe(message => {
         this.receivedMessage = message;
     });
+    this.receivedMessage = this.communicationService.getMessageToChild();
+
   }
 
+  
   //acabar la suscripcion del observable
   ngOnDestroy() {
     this.subscription?.unsubscribe();
@@ -32,17 +37,17 @@ export class ChildComponent implements OnDestroy{
 
   //OUTPUT hijo-padre
   onClickSendMessageToParentUsingOutput() {
-    const message = 'Child using Output';
-    this.messageToParent.emit(message);
+    this.messageToParent.emit('Child using Output OK');
   }
 
-  //SERVICE hijo-padre por servicio donde encontrará el mensaje ya escrito que tiene que pasar
-  sendServiceMessage(){
-    
+  //servicio que desde el botón hace click en el componente invocando al servicio
+  onClickSendMessageToParentUsingService() {
+    this.communicationService.sendMessageToParent();
+    this.receivedMessage = this.communicationService.getMessageToParent();
   }
 
-  //OBSERVABLE hijo-padre evento click
-  onClickSendObservableToParent() {
+  //OBSERVABLE hijo-padre evento click. Contiene el mensaje a enviar
+  onClickSendMessageToParentUsingObservable() {
     this.communicationService.sendMessageToParentByObservable('Child using Observable');
   }
 

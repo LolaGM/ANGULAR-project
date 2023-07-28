@@ -2,7 +2,7 @@
 .title-component{
     margin-top: 5%;
     text-align: center;
-    color: #1976d2;
+    color: #0275d8;
     font-family: 'Kanit', sans-serif;
 }
 
@@ -35,7 +35,7 @@
 .display-hide-button:after{
     font-family: 'Kanit', sans-serif;
     content: "";
-    background: #1976d2; /* color de fondo hover */
+    background: #0275d8; /* color de fondo hover */
     position: absolute;
     z-index: -1;
     padding: 16px 20px;
