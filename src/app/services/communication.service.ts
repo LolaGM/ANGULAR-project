@@ -8,14 +8,15 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class CommunicationService {
 
-  private messageToParent: string = '';
-  private messageToChild: string = '';
+  private messageToParent:string = '';
+  private messageToChild:string = '';
 
   //propiedad privada que contiene una instancia de Behaviour Subject y le pasamos valor inicial vacío
-  private messageSubject = new BehaviorSubject<string>(''); //(observable behaviour subject como fuente de datos que emite valores a los observadores)
+  private messageToParentSubject = new BehaviorSubject<string>('');
+  private messageToChildSubject = new BehaviorSubject<string>('');//(observable behaviour subject como fuente de datos que emite valores a los observadores)
 
    // Método para obtener el mensaje que se enviará al componente padre
-   getMessageToParent(): string {
+  getMessageToParent(): string {
     return this.messageToParent;
   }
 
@@ -36,17 +37,22 @@ export class CommunicationService {
 
   //OBSERVABLE método padre-hijo que en el componente propio contiene 'mensaje'
   sendMessageToChildByObservable(message: string) {
-    this.messageSubject.next(message);
+    this.messageToChildSubject.next(message);
   }
 
   //OBSERVABLE método hijo-padre que en el componente propio contiene 'mensaje'
   sendMessageToParentByObservable(message: string) {
-    this.messageSubject.next(message);
+    this.messageToParentSubject.next(message);
   }
 
   //método que devuelve el messageSubject como observable: los componentes se suscriben para recibir mensajes pero no emiten
-  getMessage(): Observable<string> {
-    return this.messageSubject.asObservable();
+
+  getMessageToParentObs(): Observable<string> {
+    return this.messageToParentSubject.asObservable();
+  }
+
+  getMessageToChildObs(): Observable<string> {
+    return this.messageToChildSubject.asObservable();
   }
   
 }

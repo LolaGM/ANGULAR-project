@@ -23,16 +23,19 @@
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: color 0.4s linear;    
+    transition: color 0.4s linear;  
+    box-shadow: 0 8px 2px -2px #3A94E1;
+  
 }
 
 .individual-element-button:hover{
-    background: grey;
+    background: #01539A;
 }
 
 
+
 .individual-element-button:active{
-    background: black;
+    background: #00325C;
 }
 
 
@@ -40,6 +43,8 @@
     margin-right: 5px;
     width: 20%;
 }
+
+
 
 
 

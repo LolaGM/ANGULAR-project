@@ -13,3 +13,9 @@
     justify-content:space-evenly;
     margin-top: 2%;
 }
+
+.message {
+    margin-left: 1%;
+    color:#01539A ;
+    font-weight: 700;
+}
