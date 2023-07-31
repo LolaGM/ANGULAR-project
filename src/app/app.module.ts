@@ -19,15 +19,14 @@ import { SwitcherComponent } from './components/switcher/switcher.component';
 import { ChildComponent } from './components/communication/child/child.component';
 import { ParentComponent } from './components/communication/parent/parent.component';
 import { FormComponent } from './components/crud-form/form/form.component';
-import { ListComponent } from './components/crud-form/list/list.component';
-import { FormService } from './services/form.service';
-import { ValidatorsService } from './services/validator.service';
-import { LocalDataService } from './services/local-data.service';
 import { TablaCRUDComponent } from './components/crud-form/table-crud.component.ts/table-crud.component';
+import { FormService } from './components/crud-form/services/form.service';
+import { LocalDataService } from './components/crud-form/services/local-data.service';
+import { ValidatorsService } from './components/crud-form/services/validator.service';
 
 @NgModule({
   declarations: [
-    AppComponent, 
+    AppComponent,     
     PartOnePageComponent,
     PartTwoPageComponent,
     DisplayComponent,
@@ -40,7 +39,6 @@ import { TablaCRUDComponent } from './components/crud-form/table-crud.component.
     GraphsComponent,
     SwitcherComponent,
     FormComponent,
-    ListComponent,
     TablaCRUDComponent,   
 
   ],
@@ -49,6 +47,7 @@ import { TablaCRUDComponent } from './components/crud-form/table-crud.component.
     AppRoutingModule,
     ReactiveFormsModule,    
     CommonModule,
+  
 
   ],  
   

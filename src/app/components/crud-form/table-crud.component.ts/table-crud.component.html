@@ -1,1 +1,43 @@
-<p>table-crud.component.ts works!</p>
+<h4  class="list-title">
+    Información de usuarios 
+</h4>
+
+<div class="container container-list mt-3">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body text-center">           
+          <table class="table table-striped table-responsive mt-11">
+            <thead>
+              <tr>
+                <th scope="col">Nombre de usuario</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Suscrito</th>
+                <th scope="col">País</th>
+                <th scope="col">Ciudad</th>
+                <th scope="col">Acciones</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let register of registers; let index = index;">
+                <td>{{ register.name }} </td>
+                <td>{{ register.email }} </td>
+                <td>
+                    <!-- Mostrar un icono de "tick" si wantNotifications es true, o espacio en blanco si es false -->
+                    <i *ngIf="register.wantNotifications" class="fas fa-check-circle text-success"></i>
+                </td>
+                <td>{{ register.country }} </td>
+                <td>{{ register.city }} </td>
+                <td>
+                    <button type="button" (click)="editRegister(index, register)"  class="btn btn-info" >Editar</button>
+                    <button type="button" (click)="deleteRegister(index)"  class="btn btn-danger">Eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

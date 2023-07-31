@@ -1,11 +1,12 @@
 // al utilizar un servicio local, los datos solo permanecerán en memoria durante la ejecución de la aplicación. Si cierras el navegador o recargas la página, los datos almacenados se perderán
 import { Injectable } from '@angular/core';
+import { User } from '../interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocalDataService {
-  private registers: any[] = [];
+  private registers: User[] = [];
 
   constructor() {}
 
