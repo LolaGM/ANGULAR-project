@@ -19,10 +19,11 @@ import { SwitcherComponent } from './components/switcher/switcher.component';
 import { ChildComponent } from './components/communication/child/child.component';
 import { ParentComponent } from './components/communication/parent/parent.component';
 import { FormComponent } from './components/crud-form/form/form.component';
-import { TablaCRUDComponent } from './components/crud-form/table-crud.component.ts/table-crud.component';
+
 import { FormService } from './components/crud-form/services/form.service';
 import { LocalDataService } from './components/crud-form/services/local-data.service';
 import { ValidatorsService } from './components/crud-form/services/validator.service';
+import { TablaCRUDComponent } from './components/crud-form/table-crud.component.ts/table-crud.component';
 
 @NgModule({
   declarations: [
@@ -39,8 +40,7 @@ import { ValidatorsService } from './components/crud-form/services/validator.ser
     GraphsComponent,
     SwitcherComponent,
     FormComponent,
-    TablaCRUDComponent,   
-
+    TablaCRUDComponent
   ],
   imports: [
     BrowserModule,

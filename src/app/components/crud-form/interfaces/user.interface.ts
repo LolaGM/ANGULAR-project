@@ -2,7 +2,7 @@ import { Countries } from './country.interface';
 
 export interface User {
     id:    number; //lo pasaremos a string cuando lo necesiemos usando toString()
-    user:  string;
+    name:  string;
     email: string;
     password: string;
     wantNotifications: boolean;

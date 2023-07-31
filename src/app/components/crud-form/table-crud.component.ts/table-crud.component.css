@@ -1,3 +1,16 @@
+.table-title{
+    color: #0275d8;
+    font-family: 'Kanit', sans-serif;
+}
+
+.table-style{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+/*SWEET ALERT STYLES customized*/
 .swal2-popup {
     font-size: 1.6rem !important;
     font-family: 'Kanit', sans-serif;
@@ -9,12 +22,10 @@
 
 h2#swal2-title{
     font-size: 24px;
-    font-family:'Lexend';
     color:theme('colors.metal');
 }
 
 div#swal2-html-container{
     font-size: 16px;
-    font-family:'Heebo';
     color: theme('colors.metal');
 }
