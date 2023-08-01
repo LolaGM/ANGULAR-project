@@ -11,10 +11,8 @@ export class ValidatorsService  {
   public cityPattern: string = '([a-zA-Z]+) ([a-zA-Z]+)';
 
   //método usado en todos las pages de formularios para validar los campos
-  public isValidField( form: FormGroup, field: string):boolean | null{ //regreso una condición para comprobar el campo del formulario usando errors o hasError y si ha sido tocado. Paso esto al HTML
-        
-    return form.controls[field].errors // retorno el form que recibo como argumento y el field
-    && form.controls[field].touched;
+  isValidField( form: FormGroup, field: string):boolean | null{ 
+    return form.controls[field].errors && form.controls[field].touched;
 }
 
   //validación de dos campos contraseña iguales: el uso de esta validación la colocaremos después del formGroup
@@ -32,5 +30,4 @@ export class ValidatorsService  {
       return null;
     };
   }
-
 }

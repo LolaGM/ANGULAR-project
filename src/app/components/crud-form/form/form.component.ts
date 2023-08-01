@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { countries } from '../interfaces/country-data.model';
-import { FakeData } from '../interfaces/fake-data.interface'; // Asegúrate de que la ruta sea correcta
 
 import { FormService } from '../services/form.service'; //service
 import { LocalDataService } from '../services/local-data.service';
@@ -21,6 +20,7 @@ export class FormComponent implements OnInit{
 
   public countries:Countries[] = countries; //archivo de datos countries y la interfaz Country
   public registers: User[] = [];
+  public formSubmitted = false; // Variable para controlar si el formulario ha sido enviado y no salgan error de validación por defecto
     
    //crear formulario con FormBuilder: primero inyectamos servicio de Angular que importamos de Forms ( así no tenemos que estar usando siempre FormControl)
   public myForm:FormGroup = this.fb.group({ //mandamos un objeto con propiedades name, price,inStorage y les declaro un arreglo de: [valor inicial,validador síncrono,validador asíncrono] con valor vacío o 0
@@ -36,8 +36,6 @@ export class FormComponent implements OnInit{
     validators: this.validatorsService.isFieldOneEqualFieldTwo('password1', 'password2')
   });
 
-  public dataList: FakeData[] = [];
-
 
   constructor(
     private fb: FormBuilder,
@@ -51,7 +49,6 @@ export class FormComponent implements OnInit{
     if (register) { //si el registro existe (es true)
       this.myForm.patchValue(register);
     };
-    this.dataList = this.localDataService.getData();
 
   }
 

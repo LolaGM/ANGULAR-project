@@ -19,14 +19,7 @@
                 <th scope="col"></th>
               </tr>
             </thead>
-            <tbody>
-              <tr *ngFor="let data of dataList">
-                <td>{{ data.name }}</td>
-                <td>{{ data.email }}</td>
-                <td>{{ data.wantNotifications }}</td>
-                <td>{{ data.country }}</td>
-                <td>{{ data.city }}</td>
-              </tr>
+            <tbody>              
               <tr *ngFor="let register of registers; let index = index;">
                 <td>{{ register.name }} </td>
                 <td>{{ register.email }} </td>

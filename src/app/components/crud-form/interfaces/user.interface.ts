@@ -8,5 +8,5 @@ export interface User {
     wantNotifications: boolean;
     country:Countries[]; //importamos interface creada con listado países por no haber usado API
     city:string;
-
 }
+
