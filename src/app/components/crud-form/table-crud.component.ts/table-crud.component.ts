@@ -12,19 +12,17 @@ import { FormService } from '../services/form.service';
 })
 export class TablaCRUDComponent implements OnInit {
 
-  @Input() registers: User[] = []; //TODO tipo interface User
+  @Input() registers: User[] = []; 
   datosLocalService: any;
-  @Output() editRegister: EventEmitter<number> = new EventEmitter<number>(); // Emite el índice del registro a editar
-  public dataList: User[] = [];
+  @Output() editRegister: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(
       private localDataService: LocalDataService,
-      private router: Router,
-      private formService: FormService
+      private formService: FormService,
       ) { }
 
   ngOnInit() {
-    this.registers = this.localDataService.getRegisters();
+    this.registers = this.formService.getRegisters();
   }
 
   addRegister(register: any) {
@@ -38,6 +36,7 @@ export class TablaCRUDComponent implements OnInit {
     this.editRegister.emit(index);
   }
 
+  //DELETE evento click en HTML
   onClickDeleteRegister(index: number) { //usando sweet alert para diálogo de eliminar
     Swal.fire({
       title: '¿De verdad quieres eliminar el registro?',
@@ -50,8 +49,7 @@ export class TablaCRUDComponent implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.datosLocalService.eliminarRegistro(index);
-        this.registers = this.datosLocalService.obtenerRegistros();
+        this.formService.deleteRegister(index);
         Swal.fire(
           'Eliminado',
           'El registro ha sido eliminado.',

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { countries } from '../interfaces/country-data.model';
@@ -21,9 +21,12 @@ export class FormComponent implements OnInit{
   public countries:Countries[] = countries; //archivo de datos countries y la interfaz Country
   public registers: User[] = [];
   public formSubmitted = false; // Variable para controlar si el formulario ha sido enviado y no salgan error de validación por defecto
-    
+  @Output() registerAdded = new EventEmitter<User>();
+
+
    //crear formulario con FormBuilder: primero inyectamos servicio de Angular que importamos de Forms ( así no tenemos que estar usando siempre FormControl)
   public myForm:FormGroup = this.fb.group({ //mandamos un objeto con propiedades name, price,inStorage y les declaro un arreglo de: [valor inicial,validador síncrono,validador asíncrono] con valor vacío o 0
+    id: [''],
     name: ['', [Validators.required, Validators.minLength(3)]],
     password1: ['',[Validators.required, Validators.minLength(6)]],
     password2: ['',[Validators.required, Validators.minLength(6)]],
@@ -54,16 +57,30 @@ export class FormComponent implements OnInit{
 
   //creamos un método para enviar datos desde el formulario a la tabla
   onSubmit(): void {
+    if (this.myForm.valid) {
+      const newUser: User = {
+        id: this.generateNewId(), // Asegúrate de tener una función para generar un nuevo ID único
+        name: this.myForm.get('name')?.value,
+        password1: this.myForm.get('password1')?.value,
+        password2: this.myForm.get('password2')?.value,
+        email: this.myForm.get('email')?.value,
+        wantNotifications: this.myForm.get('wantNotifications')?.value,
+        country: this.myForm.get('country')?.value,
+        city: this.myForm.get('city')?.value
+      };
 
-    if (this.myForm.valid) {  // Agregar nuevo registro al servicio FormService
-      this.formService.addRegister(this.myForm.value);
+      this.formService.addRegister(newUser);
+      this.registerAdded.emit(newUser); //emite evento con el nuevo usuario
+      //console.log(this.formService.getRegisters());
 
-      // Limpiar el formulario después de agregar el registro
+      // Limpia el formulario después de agregar el registro
       this.myForm.reset();
-
-      // Obtener los registros actualizados del servicio y asignarlos a la propiedad 'registers'
-      this.registers = this.formService.getRegisters();
-    }
+      }
+  }
+  //id único 
+  generateNewId(): number {   
+    const lastId = this.formService.getRegisters().length;
+    return lastId + 1;
   }
 
   //método para editar el registro en el formulario

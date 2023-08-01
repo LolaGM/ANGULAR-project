@@ -3,22 +3,25 @@
 //importar módulo http client en app module
 import { Injectable } from '@angular/core';
 import { User } from '../interfaces/user.interface';
+import { LocalDataService } from './local-data.service';
 
 @Injectable({ providedIn: 'root' })
-export class FormService {  //cambiamos el nombre a FormService
+export class FormService { 
 
-    private registers: User[] = []; // Arreglo para almacenar los registros  
+    // Arreglo para almacenar los registros  
+    private registers: User[] = []; 
 
-  //editar el registro de la tabla en el mismo formulario
+    //editar el registro de la tabla en el mismo formulario
     private selectedRegister: any = null;
 
-    constructor() {}
+    constructor(
+        private localDataService: LocalDataService    ) {}
 
-    /*  ------------CRUD------------------ */
+    /*  ------------CRUD formulario------------------ */
 
-    // Obtener todos los registros
+    // READ Obtener todos los registros
     getRegisters(): User[] {
-        return this.registers;
+        return this.registers;  
     }
 
      // Agregar un nuevo registro
@@ -43,13 +46,9 @@ export class FormService {  //cambiamos el nombre a FormService
         return false;
     }
 
-    // Eliminar un registro por su índice
-    deleteRegisterByIndex(index: number): boolean {
-        if (index >= 0 && index < this.registers.length) {
-        this.registers.splice(index, 1);
-        return true;
-        }
-        return false;
+    // Eliminar un usuario llamando al método correspondiente del LocalDataService
+    deleteRegister(id: number): void {
+    this.localDataService.deleteRegister(id);
     }
 
     setRegisterToEdit(register: any) {
@@ -59,4 +58,5 @@ export class FormService {  //cambiamos el nombre a FormService
     getRegisterToEdit() {
         return this.selectedRegister;
     }
+
 }

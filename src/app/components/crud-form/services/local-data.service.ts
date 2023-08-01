@@ -6,11 +6,18 @@ import { User} from '../interfaces/user.interface';
   providedIn: 'root',
 })
 export class LocalDataService {
+
   private registers: User[] = []; 
- 
+
+  // Variable contadora para generar ids únicos
+  private idCounter: number = 1; 
+
   constructor() {}
 
-    // Método para obtener los datos falsos almacenados
+      /*  ------------CRUD datos locales (memoria)------------------ */
+
+
+    // READ --> Método para obtener los datos almacenados
   getRegisters(): User[] {
     return this.registers;
   }
@@ -20,18 +27,19 @@ export class LocalDataService {
     return this.registers[index];
   }
 
-  //añadir registro
-  addRegister(register: any): void {
-    this.registers.push(register);
+  //CREATE-->añadir registro
+  addRegister(register: User): void {
+    //register.id = this.idCounter++; 
+    this.registers.push(register); 
   }
 
-  //editar registro que primeramente has obtenido
+  // UPDATE --> editar registro que primeramente has obtenido
   editRegister(index: number, register: any): void {
     this.registers[index] = register;
   }
 
-  //borrar registro
-  deleteRegister(index: number): void {
-    this.registers.splice(index, 1);
+  // DELETE borrar registro que es llamado en el formService
+  deleteRegister(id: number): void {
+    this.registers = this.registers.filter((user) => user.id !== id);
   }
 }
