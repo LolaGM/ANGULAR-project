@@ -12,10 +12,15 @@
 .container-form{
     font-family: 'Kanit', sans-serif;
     display: flex;
-
 }
 
 .form-label-name{
     margin-top: 2px;
 }
+
+/* Estilos para mensajes de error */
+.error-message {
+    font-size: 0.8rem;
+    color: red;
+  }
 

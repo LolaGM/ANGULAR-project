@@ -4,6 +4,7 @@ import { LocalDataService } from '../services/local-data.service';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/user.interface';
 import { FormService } from '../services/form.service';
+import { FakeData } from '../interfaces/fake-data.interface';
 
 @Component({
   selector: 'app-table-crud',
@@ -11,9 +12,11 @@ import { FormService } from '../services/form.service';
   styleUrls: ['./table-crud.component.css']
 })
 export class TablaCRUDComponent implements OnInit {
+
   @Input() registers: User[] = []; //TODO tipo interface User
   datosLocalService: any;
   @Output() editRegister: EventEmitter<number> = new EventEmitter<number>(); // Emite el índice del registro a editar
+  public dataList: FakeData[] = [];
 
   constructor(
       private localDataService: LocalDataService,

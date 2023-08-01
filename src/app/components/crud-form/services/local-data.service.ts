@@ -1,21 +1,53 @@
 // al utilizar un servicio local, los datos solo permanecerán en memoria durante la ejecución de la aplicación. Si cierras el navegador o recargas la página, los datos almacenados se perderán
 import { Injectable } from '@angular/core';
 import { User } from '../interfaces/user.interface';
+import { FakeData } from '../interfaces/fake-data.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocalDataService {
-  private registers: any[] = [];  //TODO tipo interface USER
+  private registers: User[] = []; 
+  private data: FakeData[] = [
+    {
+      name: 'John Dog',
+      password: 'password123',
+      email: 'johndog@example.com',
+      wantNotifications: true,
+      country: 'United States',
+      city: 'New York'
+    },
+    {
+      name: 'Laura Cat',
+      password: 'password123',
+      email: 'laucat@example.com',
+      wantNotifications: false,
+      country: 'United Kingdom',
+      city: 'Bristol'
+    },
+    {
+      name: 'Jim Pet',
+      password: 'password123',
+      email: 'jimpet@example.com',
+      wantNotifications: true,
+      country: 'Australia',
+      city: 'Sidney'
+    },
+  ];
 
   constructor() {}
 
-  getRegisters(): any[] {
+   // Método para obtener los datos falsos almacenados
+  getData(): FakeData[] {
+    return this.data;
+  }
+
+  getRegisters(): User[] {
     return this.registers;
   }
 
   //obtener registro por ID
-  getRegisterById(index: number): any{
+  getRegisterById(index: number): User{
     return this.registers[index];
   }
 

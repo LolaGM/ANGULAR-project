@@ -25,20 +25,26 @@
           class="form-control mb-3"
           id="password"
           placeholder="Contraseña"
-          formControlName="password"
+          formControlName="password1"
           autocomplete="new-password" 
         />
-      </div>
+        <div *ngIf="myForm.get('password1')?.errors?.['required']" class="error-message">Campo requerido</div>
+        <div *ngIf="myForm.get('password1')?.errors?.['minlength']" class="error-message">La contraseña debe tener al menos 6 caracteres</div>
+    </div>
       <div class="form-group col-md-10">
         <label for="passwordConfirm">Confirmar contraseña</label>
         <input
           type="password"
           class="form-control mb-3"
-          id="passwordConfirm"
+          id="password2"
           placeholder="Confirmar contraseña"
+          formControlName="password2"
           autocomplete="new-password" 
         />
-      </div>
+        <div *ngIf="myForm.get('password2')?.errors?.['required']" class="error-message">Campo requerido</div>
+        <div *ngIf="myForm.get('password2')?.errors?.['minlength']" class="error-message">La contraseña debe tener al menos 6 caracteres</div>
+        <div *ngIf="myForm.get('password2')?.errors?.['notEqual']" class="error-message">Las contraseñas no coinciden</div>
+    </div>
       <div class="form-row">
         <div class="form-group col-md-10">
           <label for="email">Correo</label>
