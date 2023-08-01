@@ -47,8 +47,10 @@ export class FormService {
     }
 
     // Eliminar un usuario llamando al método correspondiente del LocalDataService
-    deleteRegister(id: number): void {
-    this.localDataService.deleteRegister(id);
+    deleteRegister(index: number): void {
+        if (index >= 0 && index < this.registers.length) {
+            this.registers.splice(index, 1);
+        }
     }
 
     setRegisterToEdit(register: any) {
