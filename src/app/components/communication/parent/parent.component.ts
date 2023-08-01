@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { CommunicationService } from 'src/app/services/communication.service';
+import { CommunicationService } from '../services/communication.service';
 
 @Component({
   selector: 'app-parent',

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
-import { CommunicationService } from 'src/app/services/communication.service';
 import { Subscription } from 'rxjs';
+import { CommunicationService } from '../services/communication.service';
 
 @Component({
   selector: 'app-child',

@@ -25,14 +25,14 @@ export class CommunicationService {
     return this.messageToChild;
   }
 
-   // Método para enviar el mensaje desde el componente hijo al servicio y actualizar el mensaje del componente padre
+  // Método para enviar el mensaje desde el componente hijo al servicio y actualizar el mensaje del componente padre
   sendMessageToParent() {
-    this.messageToChild = 'CHILD USING SERVICE';
+    this.messageToParent = 'Child using service to send a message to Parent';
   }
 
   // Método para enviar el mensaje desde el componente padre al servicio y actualizar el mensaje del componente hijo
   sendMessageToChild() {
-    this.messageToChild = 'Parent using service';
+    this.messageToChild = 'Parent using service OK';
   }
 
   //OBSERVABLE método padre-hijo que en el componente propio contiene 'mensaje'

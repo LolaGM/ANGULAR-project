@@ -5,7 +5,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 
-import { CommunicationService } from './services/communication.service';
 
 import { PartOnePageComponent } from './pages/part-one/part-one-page.component';
 import { PartTwoPageComponent } from './pages/part-two/part-two-page.component';
@@ -24,6 +23,7 @@ import { FormService } from './components/crud-form/services/form.service';
 import { LocalDataService } from './components/crud-form/services/local-data.service';
 import { ValidatorsService } from './components/crud-form/services/validator.service';
 import { TablaCRUDComponent } from './components/crud-form/table-crud.component.ts/table-crud.component';
+import { CommunicationService } from './components/communication/services/communication.service';
 
 @NgModule({
   declarations: [
