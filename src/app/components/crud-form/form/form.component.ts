@@ -23,7 +23,6 @@ export class FormComponent implements OnInit{
   public formSubmitted = false; // Variable para controlar si el formulario ha sido enviado y no salgan error de validación por defecto
   @Output() registerAdded = new EventEmitter<User>();
 
-
    //crear formulario con FormBuilder: primero inyectamos servicio de Angular que importamos de Forms ( así no tenemos que estar usando siempre FormControl)
   public myForm:FormGroup = this.fb.group({ //mandamos un objeto con propiedades name, price,inStorage y les declaro un arreglo de: [valor inicial,validador síncrono,validador asíncrono] con valor vacío o 0
     id: [''],
@@ -43,19 +42,29 @@ export class FormComponent implements OnInit{
   constructor(
     private fb: FormBuilder,
     private formService: FormService, //register service
-    private localDataService: LocalDataService, 
     private validatorsService: ValidatorsService
     ){}
 
-  ngOnInit(): void { // cargue los datos en el formulario durante la inicialización.
+  ngOnInit(): void { 
+    // cargue los datos en el formulario durante la inicialización.
     const register = this.formService.getRegisterToEdit(); //guardas en constante el método del servicio
     if (register) { //si el registro existe (es true)
       this.myForm.patchValue(register);
     };
+    this.registerAdded.subscribe(() => {
+      this.myForm.reset();
+    });
+
+    //TODO Añadir la validación de correo electrónico al campo de email
+    //this.myForm.get('email')?.setValidators([Validators.required,Validators.email,this.validatorsService.isValidEmail 
+    //]);
+
+    // Limpiar formulario antes de cada nuevo registro    
+      //this.myForm.reset();
 
   }
 
-  //creamos un método para enviar datos desde el formulario a la tabla
+  //creamos un método que será evento click para enviar datos desde el formulario a la tabla
   onSubmit(): void {
     if (this.myForm.valid) {
       const newUser: User = {
@@ -70,12 +79,13 @@ export class FormComponent implements OnInit{
       };
 
       this.formService.addRegister(newUser);
-      this.registerAdded.emit(newUser); //emite evento con el nuevo usuario
       //console.log(this.formService.getRegisters());
+      this.registerAdded.emit(newUser); 
+      // Emitir el evento solo después de agregar el registro
 
-      // Limpia el formulario después de agregar el registro
-      this.myForm.reset();
-      }
+
+      //la limpieza del formulario con reset la hacemos en onInit
+    }
   }
   //id único 
   generateNewId(): number {   

@@ -1,31 +1,59 @@
 import Swal from 'sweetalert2';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { LocalDataService } from '../services/local-data.service';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/user.interface';
 import { FormService } from '../services/form.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-table-crud',
   templateUrl: './table-crud.component.html',
   styleUrls: ['./table-crud.component.css']
 })
-export class TablaCRUDComponent implements OnInit {
+export class TablaCRUDComponent implements OnInit,OnDestroy,OnChanges {
 
   @Input() registers: User[] = []; 
-  datosLocalService: any;
   @Output() editRegister: EventEmitter<number> = new EventEmitter<number>();
+  public newRegisterAddedSubscription: Subscription | undefined;
+  
 
   constructor(
       private localDataService: LocalDataService,
       private formService: FormService,
       ) { }
+  
 
-  ngOnInit() {
-    this.registers = this.formService.getRegisters();
+  ngOnInit() {     
+     // Suscribirse al evento newRegisterAdded solo si aún no está suscrito
+     if (!this.newRegisterAddedSubscription) {
+      this.newRegisterAddedSubscription = this.formService.newRegisterAdded.subscribe((newUser: User) => {
+        // Verificar si el nuevo usuario ya existe en la tabla
+        const existingUser = this.registers.find((user) => user.id === newUser.id);
+        if (!existingUser) {
+          this.registers.push(newUser);
+        }
+      });
+    }  
+  
+
   }
 
-  addRegister(register: any) {
+  ngOnChanges(changes: SimpleChanges) {
+    // Si el input registers cambia, actualizamos la lista local
+    if (changes['registers']) {
+      this.registers = changes['registers'].currentValue;
+    }
+  }
+
+  // Nos desuscribimos del evento antes de que el componente se destruya
+  ngOnDestroy() {
+    if (this.newRegisterAddedSubscription) {
+      this.newRegisterAddedSubscription.unsubscribe();
+    }
+  }
+
+  addRegister(register: User) {
     this.localDataService.addRegister(register);
     this.registers = this.localDataService.getRegisters();
   }
@@ -56,7 +84,6 @@ export class TablaCRUDComponent implements OnInit {
           'success'
         );
       }
-    });
-  
+    });  
   }
 }

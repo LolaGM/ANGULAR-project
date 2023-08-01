@@ -6,15 +6,27 @@
 .container-form-table{
     display: flex;
     flex-direction: column;
+    border: 5px solid green !important;
 }
 
 .container-form{
     font-family: 'Kanit', sans-serif;
     display: flex;
+
+
 }
 
 .form-label-name{
     margin-top: 15px;
+}
+
+.form-buttons-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.form-button{
+    margin-left: 15%;
 }
 
 /* Estilos para mensajes de error */

@@ -1,5 +1,5 @@
 
-<div class="container-form-table">  
+<div>  
   <div class="container-form">   
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
       <h4 class="form-title">
@@ -55,6 +55,12 @@
             placeholder="Correo"
             formControlName="email"
           />
+          <!--TODO Errores de validacion email-->
+          <!-- <div *ngIf="isValidEmail('email')">
+            <div *ngIf="myForm.get('email')?.errors?.['required']">El correo electrónico es requerido.</div>
+            <div *ngIf="myForm.get('email')?.errors?.['email']">El formato del correo electrónico es inválido.</div>
+            <div *ngIf="myForm.get('email')?.errors?.['invalidEmail']">El correo electrónico no es válido.</div>
+          </div> -->
         </div>
       </div>
       <div class="form-group col-md-10">
@@ -93,7 +99,8 @@
           />
         </div>
       </div>
-      <div class="form-button">
+      <div class="form-buttons">
+        <button type="reset"  class="btn btn-warning  form-button">Limpiar</button>
         <button
           type="submit"
           (click)="onSubmit()"

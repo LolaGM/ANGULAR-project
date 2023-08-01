@@ -8,8 +8,6 @@
 
 .form-list-container{
     display: flex;
-    flex-direction: row;
-    justify-content:flex-start;
     border: 2px solid #0275d8;
     border-radius: 5px;
     padding: 2% 4%;
