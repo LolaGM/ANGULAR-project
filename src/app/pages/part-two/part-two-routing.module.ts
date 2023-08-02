@@ -5,7 +5,7 @@ const routes: Routes [
   {
     path: 'part-two', 
     component: PartTwoPageComponent,
-    children: [ //rutas hija que aparecerá en navegador como /part-two/switcher o el elemento que hagamos clic
+    children: [ 
       {
         path: 'switcher',
         component: SwitcherComponent

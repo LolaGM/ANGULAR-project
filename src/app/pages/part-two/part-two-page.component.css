@@ -25,18 +25,15 @@
     cursor: pointer;
     transition: color 0.4s linear;  
     box-shadow: 0 8px 2px -2px #3A94E1;
-  
 }
 
 .individual-element-button:hover{
     background: #01539A;
 }
 
-
 .individual-element-button:active{
     background: #00325C;
 }
-
 
 .github-icon-svg{
     margin-right: 5px;

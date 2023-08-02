@@ -3,8 +3,7 @@
   <div class="container-form">   
     <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
       <h4 class="form-title">
-        Formulario de registro:
-        <!-- {{ currentRegister.index ? 'Editar' : 'Añadir' }}  -->
+        Formulario de registro
       </h4>
       <div class="form-group  form-label-name col-md-10 ">
         <label for="userName">Nombre de usuario</label>
@@ -55,12 +54,6 @@
             placeholder="Correo"
             formControlName="email"
           />
-          <!--TODO Errores de validacion email-->
-          <!-- <div *ngIf="isValidEmail('email')">
-            <div *ngIf="myForm.get('email')?.errors?.['required']">El correo electrónico es requerido.</div>
-            <div *ngIf="myForm.get('email')?.errors?.['email']">El formato del correo electrónico es inválido.</div>
-            <div *ngIf="myForm.get('email')?.errors?.['invalidEmail']">El correo electrónico no es válido.</div>
-          </div> -->
         </div>
       </div>
       <div class="form-group col-md-10">
@@ -79,10 +72,8 @@
       <div class="form-row">
         <div class="form-group col-md-10">
           <label for="country">País</label>
-          <!--Usamos interface creada para los países. No uso API-->
           <select id="country" class="form-control mb-3" formControlName="country">
             <option value="" disabled selected>Selecciona país</option>
-            <!--recorro el listado de países y saco el valor de nombre de cada uno-->
             <option *ngFor="let country of countries" [value]="country.name">
               {{ country.name }}
             </option>
@@ -106,11 +97,9 @@
           (click)="onSubmit()"
           class="btn btn-primary form-button">
           Guardar
-          <!--TODO  {{ currentUser.id ? 'Editar' : 'Añadir' }} -->
         </button>
       </div>
     </form>
-    <!-- Pasamos los registros correctamente al componente hijo -->
-    <app-table-crud [registers]="registers" (editRegister)="editRegister($event)"></app-table-crud>
+    <app-table-crud ></app-table-crud>
   </div>
 </div>

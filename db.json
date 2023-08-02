@@ -1,0 +1,45 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Usuario 1",
+      "password1": "clave1",
+      "password2": "clave1",
+      "email": "usuario1@example.com",
+      "wantNotifications": true,
+      "country": "País 1",
+      "city": "Ciudad 1"
+    },
+    {
+      "id": 2,
+      "name": "Usuario 2",
+      "password1": "clave2",
+      "password2": "clave2",
+      "email": "usuario2@example.com",
+      "wantNotifications": false,
+      "country": "País 2",
+      "city": "Ciudad 2"
+    },
+    {
+      "id": 3,
+      "name": "Usuario 3",
+      "password1": "clave2",
+      "password2": "clave2",
+      "email": "usuario3@example.com",
+      "wantNotifications": true,
+      "country": "País 3",
+      "city": "Ciudad 3"
+    },
+    {
+      "id": 4,
+      "name": "Usuario 4",
+      "password1": "clave2",
+      "password2": "clave2",
+      "email": "usuario3@example.com",
+      "wantNotifications": true,
+      "country": "País 3",
+      "city": "Ciudad 3"
+    }
+
+  ]
+}

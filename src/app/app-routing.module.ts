@@ -16,7 +16,7 @@ const routes: Routes = [
   {
     path: 'part-one',
     component: PartOnePageComponent,
-    children: [ //rutas hija que aparecerá en navegador como /part-one/display o el elemento que hagamos clic
+    children: [ 
       {
         path: 'display',
         component: DisplayComponent

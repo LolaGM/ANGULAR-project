@@ -9,7 +9,6 @@ export class ValidatorsService  {
   public firstNameAndLastnamePattern: string = '([a-zA-Z]+) ([a-zA-Z]+)';
   public emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
 
-  //método usado en todos las pages de formularios para validar los campos
   isValidField( form: FormGroup, field: string):boolean | null{ 
       return form.controls[field].errors && form.controls[field].touched;
   }
@@ -23,7 +22,6 @@ export class ValidatorsService  {
     return null;
   }
 
-  //validación de dos campos contraseña iguales: el uso de esta validación la colocaremos después del formGroup
   isFieldOneEqualFieldTwo(field1: string, field2: string) {
     return (formGroup: AbstractControl): ValidationErrors | null => {
       const fieldValue1 = formGroup.get(field1)?.value;

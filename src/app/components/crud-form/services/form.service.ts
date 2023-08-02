@@ -1,69 +1,40 @@
-//snippet a-service o crear con schematics
-
-//importar módulo http client en app module
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { User } from '../interfaces/user.interface';
-import { LocalDataService } from './local-data.service';
+import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
+
 
 @Injectable({ providedIn: 'root' })
 export class FormService { 
 
-    // Arreglo para almacenar los registros  
-    private registers: User[] = []; 
+    private apiUrl = `${environment.apiUrl}/users`;
 
-    // EventEmitter para notificar cuando se agrega un nuevo registro
-    newRegisterAdded: EventEmitter<User> = new EventEmitter<User>();
+    private formDataSubject: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
+    public formData$: Observable<User | null> = this.formDataSubject.asObservable();
 
-    //editar el registro de la tabla en el mismo formulario
-    private selectedRegister: any = null;
+    constructor(private http: HttpClient) {}
 
-    constructor(
-        private localDataService: LocalDataService    ) {}
-
-    /*  ------------CRUD formulario------------------ */
-
-    // READ Obtener todos los registros
-    getRegisters(): User[] {
-        return this.registers;  
+    getRegisters(): Observable<User[]> {
+        return this.http.get<User[]>(this.apiUrl);
     }
 
-    // CREATE Agregar un nuevo registro
-    addRegister(register: User) {
-        this.registers.push(register);
-        // Emitir el evento con el nuevo registro
-        this.newRegisterAdded.emit(register); 
+    addRegister(newUser: User): Observable<User> {
+        return this.http.post<User>(this.apiUrl, newUser);
+    }
+    
+    deleteRegister(id: number): Observable<any> {
+        const url = `${this.apiUrl}/${id}`;
+        return this.http.delete(url);
     }
 
-    // READ Obtener un registro por su índice
-    getRegisterByIndex(index: number): User | null {
-        if (index >= 0 && index < this.registers.length) {
-        return this.registers[index];
-        }
-        return null;
+    getFormData(): User | null {
+        return this.formDataSubject.getValue();
     }
 
-    // UPDATE Actualizar un registro existente por su índice
-    updateRegisterByIndex(index: number, updatedRegister: User): boolean {
-        if (index >= 0 && index < this.registers.length) {
-        this.registers[index] = updatedRegister;
-        return true;
-        }
-        return false;
+    setFormData(formData: User) {
+        this.formDataSubject.next(formData);
     }
-
-    // DELETE Eliminar un usuario llamando al método correspondiente del LocalDataService
-    deleteRegister(index: number): void {
-        if (index >= 0 && index < this.registers.length) {
-            this.registers.splice(index, 1);
-        }
-    }
-
-    setRegisterToEdit(register: any) {
-        this.selectedRegister = register;
-    }
-
-    getRegisterToEdit() {
-        return this.selectedRegister;
-    }
-
+    
 }

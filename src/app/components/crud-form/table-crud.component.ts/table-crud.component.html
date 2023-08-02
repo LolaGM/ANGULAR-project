@@ -20,19 +20,18 @@
               </tr>
             </thead>
             <tbody>              
-              <tr *ngFor="let register of registers; let index = index;">
-                <td>{{ register.name }} </td>
-                <td>{{ register.email }} </td>
+              <tr *ngFor="let user of registers; let index = index;">
+                <td>{{ user.name }} </td>
+                <td>{{ user.email }} </td>
                 <td>
-                    <!-- Mostrar un icono de "tick" si wantNotifications es true, o espacio en blanco si es false -->
-                    <i *ngIf="register.wantNotifications" class="fas fa-check-circle text-success"></i>
+                    <i *ngIf="user.wantNotifications" class="fas fa-check-circle text-success"></i>
                 </td>
-                <td>{{ register.country }} </td>
-                <td>{{ register.city }} </td>
-                <td class="action-buttons">
+                <td>{{ user.country }} </td>
+                <td>{{ user.city }} </td>
+              <!--  <td class="action-buttons">
                     <button type="button" (click)="onEditClick(index)"  class="btn btn-info" >Editar</button>
                     <button type="button" (click)="onClickDeleteRegister(index)"  class="btn btn-danger">Eliminar</button>
-                </td>
+                </td> -->
               </tr>
             </tbody>
           </table>

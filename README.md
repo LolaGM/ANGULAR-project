@@ -13,7 +13,14 @@
 <li>External library with public API data: Graphs</li>
 <li>Counter</li>
 </ul>
-<h2>2. Stacks and technologies used</h2>
+
+<h2>2. Dev commands and instructions</h2>
+1. Clone thep project using ````git clone```
+2. Use  ```npm install``` to bring dependencies
+3. Run backend using the command  ```npm run backend``` (do not forget to add in package.json  this command)
+4. Build the app using ```npm start``` or ```ng s -o```
+
+<h2>3. Stacks and technologies used</h2>
 <p align="left">    
    <img src="https://img.shields.io/badge/angular.js-%23E23237.svg?style=for-the-badge&logo=angularjs&logoColor=white"></img>
    <img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white"></img>
@@ -23,7 +30,7 @@
    <img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"></img>   
 </p>
 
-<h2>3. Visual Studio Code Extensions Used </h2>
+<h2>4. Visual Studio Code Extensions Used </h2>
 <ol>
    <li>Angular Snippets</li>
    <li>Angular Language Service</li>
@@ -37,7 +44,7 @@
    <li>Better Comments</li> 
 </ol>
 
-<h2>4. My GitHub Link</h2>
+<h2>5. My GitHub Link</h2>
 
 <ul dir="auto">
 <li>
@@ -45,7 +52,7 @@
 </li>
 </ul>
 
-<h2>5. Installations</h2>
+<h2>6. Installations</h2>
 <h3>Angular CLI</h3>
 <p>To install the command line interface we use the following command as administrators: <code>npm install -g @angular/cli </code> </p>
 <p>To check the Angular CLI version we use the <code>ng --version command</code></p>

@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { PartOnePageComponent } from './pages/part-one/part-one-page.component';
 import { PartTwoPageComponent } from './pages/part-two/part-two-page.component';
@@ -24,6 +24,7 @@ import { LocalDataService } from './components/crud-form/services/local-data.ser
 import { ValidatorsService } from './components/crud-form/services/validator.service';
 import { TablaCRUDComponent } from './components/crud-form/table-crud.component.ts/table-crud.component';
 import { CommunicationService } from './components/communication/services/communication.service';
+import { DataService } from './components/crud-form/services/data.service';
 
 @NgModule({
   declarations: [
@@ -47,15 +48,17 @@ import { CommunicationService } from './components/communication/services/commun
     AppRoutingModule,
     ReactiveFormsModule,    
     CommonModule,
-  
+    HttpClientModule 
 
   ],  
   
-  providers: [ //agregamos el servicio dentro de proveedores
+  providers: [ 
   CommunicationService,
   ValidatorsService,
   FormService,
-  LocalDataService
+  DataService,
+  LocalDataService,
+
   ],
 
   bootstrap: [AppComponent]

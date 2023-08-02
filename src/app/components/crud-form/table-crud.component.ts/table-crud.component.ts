@@ -1,71 +1,59 @@
 import Swal from 'sweetalert2';
 import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { LocalDataService } from '../services/local-data.service';
-import { Router } from '@angular/router';
 import { User } from '../interfaces/user.interface';
 import { FormService } from '../services/form.service';
 import { Subscription } from 'rxjs';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-table-crud',
   templateUrl: './table-crud.component.html',
   styleUrls: ['./table-crud.component.css']
 })
-export class TablaCRUDComponent implements OnInit,OnDestroy,OnChanges {
 
-  @Input() registers: User[] = []; 
-  @Output() editRegister: EventEmitter<number> = new EventEmitter<number>();
-  public newRegisterAddedSubscription: Subscription | undefined;
-  
+export class TablaCRUDComponent implements OnInit,OnDestroy {
+
+  public registers: User[] = [];
+  private formDataSubscription: Subscription | undefined;
+  public formData: User | null = null;
 
   constructor(
-      private localDataService: LocalDataService,
       private formService: FormService,
+      private dataService: DataService,
       ) { }
   
+  ngOnInit() {
+    this.getRegisters();
 
-  ngOnInit() {     
-     // Suscribirse al evento newRegisterAdded solo si aún no está suscrito
-     if (!this.newRegisterAddedSubscription) {
-      this.newRegisterAddedSubscription = this.formService.newRegisterAdded.subscribe((newUser: User) => {
-        // Verificar si el nuevo usuario ya existe en la tabla
-        const existingUser = this.registers.find((user) => user.id === newUser.id);
-        if (!existingUser) {
-          this.registers.push(newUser);
+    this.formDataSubscription = this.formService.formData$.subscribe((formData) => {
+        if (formData) {
+            console.log('Nuevo registro recibido:', formData);
+            this.registers.push(formData);
         }
-      });
-    }  
-  
-
+    });
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    // Si el input registers cambia, actualizamos la lista local
-    if (changes['registers']) {
-      this.registers = changes['registers'].currentValue;
-    }
-  }
-
-  // Nos desuscribimos del evento antes de que el componente se destruya
   ngOnDestroy() {
-    if (this.newRegisterAddedSubscription) {
-      this.newRegisterAddedSubscription.unsubscribe();
+    if (this.formDataSubscription) {
+      this.formDataSubscription.unsubscribe();
     }
   }
 
-  addRegister(register: User) {
-    this.localDataService.addRegister(register);
-    this.registers = this.localDataService.getRegisters();
+  getRegisters() {
+    this.formService.getRegisters().subscribe(
+      (data: User[]) => {
+        console.log(data);
+        this.registers = data;
+      },
+      (error) => {
+        console.error('Error al obtener los registros:', error);
+      }
+    );
   }
 
-  //evento click del botón editar que tendrá un ID numérico
-  onEditClick(index: number) {
-    // Cuando se hace clic en el botón de editar, emitimos el índice del registro
-    this.editRegister.emit(index);
-  }
 
-  //DELETE evento click en HTML
-  onClickDeleteRegister(index: number) { //usando sweet alert para diálogo de eliminar
+  /* onClickDeleteRegister(index: number) { 
     Swal.fire({
       title: '¿De verdad quieres eliminar el registro?',
       text: '¡El registro será eliminado permanentemente!',
@@ -85,5 +73,5 @@ export class TablaCRUDComponent implements OnInit,OnDestroy,OnChanges {
         );
       }
     });  
-  }
+  } */
 }

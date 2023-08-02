@@ -20,7 +20,7 @@ import { SearchOnComponent } from 'src/app/components/search-on/search-on.compon
   ],
   imports: [
     CommonModule,
-    PartOneRoutingModule
+    
   ]
 })
 export class PartOneModule { }
