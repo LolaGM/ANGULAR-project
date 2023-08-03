@@ -25,7 +25,6 @@ export class TablaCRUDComponent implements OnInit,OnDestroy {
 
     this.formDataSubscription = this.formService.formData$.subscribe((formData) => {
         if (formData) {
-            console.log('Nuevo registro recibido:', formData);
             this.registers.push(formData);
         }
     });
@@ -49,8 +48,7 @@ export class TablaCRUDComponent implements OnInit,OnDestroy {
     );
   }
 
-
-  /* onClickDeleteRegister(index: number) { 
+  onClickDeleteRegister(id: number) { 
     Swal.fire({
       title: '¿De verdad quieres eliminar el registro?',
       text: '¡El registro será eliminado permanentemente!',
@@ -62,13 +60,18 @@ export class TablaCRUDComponent implements OnInit,OnDestroy {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.formService.deleteRegister(index);
-        Swal.fire(
-          'Eliminado',
-          'El registro ha sido eliminado.',
-          'success'
+        this.formService.deleteRegister(id)
+        .subscribe(() => {
+            this.getRegisters();
+
+            Swal.fire(
+              'Eliminado',
+              'El registro ha sido eliminado.',
+              'success'
+            );
+          },          
         );
       }
     });  
-  } */
+  }
 }

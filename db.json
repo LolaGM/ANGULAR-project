@@ -31,15 +31,14 @@
       "city": "Ciudad 3"
     },
     {
-      "id": 4,
-      "name": "Usuario 4",
-      "password1": "clave2",
-      "password2": "clave2",
-      "email": "usuario3@example.com",
-      "wantNotifications": true,
-      "country": "País 3",
-      "city": "Ciudad 3"
+      "id": 5,
+      "name": "Ana",
+      "password1": "123456",
+      "password2": "123456",
+      "email": "ana@google.com",
+      "wantNotifications": false,
+      "country": "Australia",
+      "city": "Sidney"
     }
-
   ]
 }

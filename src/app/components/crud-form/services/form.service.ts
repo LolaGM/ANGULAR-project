@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { User } from '../interfaces/user.interface';
-import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
+
+import { BehaviorSubject, Observable, catchError } from 'rxjs';
+
 import { HttpClient } from '@angular/common/http';
+
 import { environment } from 'src/environments/environment';
 
 
@@ -24,9 +27,9 @@ export class FormService {
         return this.http.post<User>(this.apiUrl, newUser);
     }
     
-    deleteRegister(id: number): Observable<any> {
-        const url = `${this.apiUrl}/${id}`;
-        return this.http.delete(url);
+    deleteRegister(id: number) {
+        const url = `${this.apiUrl}/${id.toString()}`;
+        return this.http.delete<User>(url);
     }
 
     getFormData(): User | null {

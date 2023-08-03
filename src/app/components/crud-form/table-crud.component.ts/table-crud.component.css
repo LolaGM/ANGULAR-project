@@ -9,10 +9,15 @@
     justify-content: space-between;
 }
 
+.register-table{
+    color: #0275d8;
+    font-family: 'Kanit', sans-serif;
+}
+
 .action-buttons{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-around !important;
 }
 
 /*SWEET ALERT STYLES customized*/
