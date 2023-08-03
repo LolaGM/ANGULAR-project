@@ -8,7 +8,6 @@ import { ValidatorsService } from '../services/validator.service';
 
 import { User } from '../interfaces/user.interface';
 import { Countries } from '../interfaces/country.interface';
-import { DataService } from '../services/data.service';
 
 
 @Component({
@@ -29,7 +28,6 @@ export class FormComponent implements OnInit{
     private fb: FormBuilder,
     private formService: FormService, 
     private validatorsService: ValidatorsService,
-    private dataService: DataService
     ){
       this.myForm = this.fb.group({
         id: [''],

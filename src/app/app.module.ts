@@ -20,11 +20,9 @@ import { ParentComponent } from './components/communication/parent/parent.compon
 import { FormComponent } from './components/crud-form/form/form.component';
 
 import { FormService } from './components/crud-form/services/form.service';
-import { LocalDataService } from './components/crud-form/services/local-data.service';
 import { ValidatorsService } from './components/crud-form/services/validator.service';
 import { TablaCRUDComponent } from './components/crud-form/table-crud.component.ts/table-crud.component';
 import { CommunicationService } from './components/communication/services/communication.service';
-import { DataService } from './components/crud-form/services/data.service';
 
 @NgModule({
   declarations: [
@@ -56,8 +54,6 @@ import { DataService } from './components/crud-form/services/data.service';
   CommunicationService,
   ValidatorsService,
   FormService,
-  DataService,
-  LocalDataService,
 
   ],
 

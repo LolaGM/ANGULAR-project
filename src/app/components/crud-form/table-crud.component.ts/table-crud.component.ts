@@ -1,10 +1,8 @@
 import Swal from 'sweetalert2';
 import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
-import { LocalDataService } from '../services/local-data.service';
 import { User } from '../interfaces/user.interface';
 import { FormService } from '../services/form.service';
 import { Subscription } from 'rxjs';
-import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-table-crud',
@@ -20,7 +18,6 @@ export class TablaCRUDComponent implements OnInit,OnDestroy {
 
   constructor(
       private formService: FormService,
-      private dataService: DataService,
       ) { }
   
   ngOnInit() {
