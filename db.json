@@ -17,7 +17,7 @@
       "password2": "clave2",
       "email": "usuario2@example.com",
       "wantNotifications": false,
-      "country": "Francia",
+      "country": "France",
       "city": "Ciudad 2"
     },
     {
@@ -42,13 +42,13 @@
     },
     {
       "id": 6,
-      "name": "fallo",
+      "name": "Roberto",
       "password1": "123456",
       "password2": "123456",
-      "email": "fallo@google.com",
-      "wantNotifications": false,
-      "country": "Bulgaria",
-      "city": "sofia"
+      "email": "roberto@google.com",
+      "wantNotifications": null,
+      "country": "Cuba",
+      "city": "habana"
     }
   ]
 }

@@ -100,7 +100,7 @@
           type="submit"
           (click)="onSubmit()"
           class="btn btn-primary form-button">
-          Guardar
+          {{ isEditMode ? 'Actualizar': 'Guardar'}}
         </button>
       </div>
     </form>

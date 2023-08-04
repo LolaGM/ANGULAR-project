@@ -23,7 +23,9 @@ export class FormComponent implements OnInit{
 
   private formDataSubscription: Subscription | undefined;
 
-  public selectedUser: User | null = null;
+  public selectedUserFromTable : User | null = null;
+
+  public isEditMode: boolean = false;
 
   public myForm:FormGroup = this.fb.group({
     id: [''],
@@ -48,12 +50,14 @@ export class FormComponent implements OnInit{
 
   
   ngOnInit(): void { 
-    this.formDataSubscription = this.formService.getSelectedUserInForm()
-      .subscribe((formData) => {
-        if (formData) {
-          this.myForm.patchValue(formData);
-        }
-      });
+    this.formService.getSelectedUserInForm().subscribe((user) => {
+      if (user) {
+        this.myForm.patchValue(user);
+        this.isEditMode = true;
+      } else {
+        this.isEditMode = false;
+      }
+    });
   }
   
   onSubmit(): void {
