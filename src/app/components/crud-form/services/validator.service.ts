@@ -7,22 +7,13 @@ import { AbstractControl, FormBuilder, FormGroup, ValidationErrors } from '@angu
 export class ValidatorsService  {
 
   public firstNameAndLastnamePattern: string = '([a-zA-Z]+) ([a-zA-Z]+)';
-  public emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
 
   isValidField( form: FormGroup, field: string):boolean | null{ 
       return form.controls[field].errors && form.controls[field].touched;
   }
 
-  // TODO Método para validar el campo de correo electrónico
-  isValidEmail(control: AbstractControl): ValidationErrors | null {
-    const email = control.value;
-    if (email && !email.match(this.emailPattern)) {
-      return { invalidEmail: true };
-    }
-    return null;
-  }
 
-  isFieldOneEqualFieldTwo(field1: string, field2: string) {
+  isFieldOneEqualFieldTwo(field1: string, field2: string): {} |null  {
     return (formGroup: AbstractControl): ValidationErrors | null => {
       const fieldValue1 = formGroup.get(field1)?.value;
       const fieldValue2 = formGroup.get(field2)?.value;
@@ -36,4 +27,13 @@ export class ValidatorsService  {
       return null;
     };
   }
+
+  isValidEmail(control: AbstractControl): ValidationErrors | null {
+    const email = control.value;
+    if (email && !email.match("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")) {
+      return { invalidEmail: true };
+    }
+    return null;
+  }
+  
 }

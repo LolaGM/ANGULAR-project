@@ -8,7 +8,6 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 
-
 @Injectable({ providedIn: 'root' })
 export class FormService { 
 
@@ -19,15 +18,29 @@ export class FormService {
 
     constructor(private http: HttpClient) {}
 
-    getRegisters(): Observable<User[]> {
+    getUsers(): Observable<User[]> {
         return this.http.get<User[]>(this.apiUrl);
     }
 
-    addRegister(newUser: User): Observable<User> {
+    addUser(newUser: User): Observable<User> {
         return this.http.post<User>(this.apiUrl, newUser);
     }
+
+    getSelectedUserInForm(): Observable<User | null> {
+        return this.formDataSubject.asObservable();
+    }
+
+    isEqual(userTable: User, userForm: User): boolean {
+        return JSON.stringify(userTable) === JSON.stringify(userForm);
+    }
+
+    editUser(editedUser: User): Observable<User> {
+        const url = `${this.apiUrl}/${editedUser.id}`;
+        return this.http.put<User>(url, editedUser);
+    }
+
     
-    deleteRegister(id: number) {
+    deleteUser(id: number) {
         const url = `${this.apiUrl}/${id.toString()}`;
         return this.http.delete<User>(url);
     }

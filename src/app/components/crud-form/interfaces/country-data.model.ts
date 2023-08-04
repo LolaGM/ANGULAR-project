@@ -1,4 +1,3 @@
-//importo la interface creada y aquí pongo el array de objetos con cada país y código. No es necesario tanta información y sólo usaremos el nombre del país
 import { Countries } from './country.interface';
 
 export var countries: Countries [] = [

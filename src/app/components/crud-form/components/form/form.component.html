@@ -54,6 +54,10 @@
             placeholder="Correo"
             formControlName="email"
           />
+          <div class="error-message" *ngIf="myForm.get('email')?.touched && myForm.get('email')?.invalid">
+            <div *ngIf="myForm.get('email')?.errors?.['required']" class="error-message">El email es requerido.</div>
+            <div *ngIf="myForm.get('email')?.errors?.['invalidEmail']" class="error-message">El email no es válido.</div>
+          </div>
         </div>
       </div>
       <div class="form-group col-md-10">

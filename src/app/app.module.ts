@@ -17,11 +17,11 @@ import { GraphsComponent } from './components/graphs/graphs.component';
 import { SwitcherComponent } from './components/switcher/switcher.component';
 import { ChildComponent } from './components/communication/child/child.component';
 import { ParentComponent } from './components/communication/parent/parent.component';
-import { FormComponent } from './components/crud-form/form/form.component';
+import { FormComponent } from './components/crud-form/components/form/form.component';
 
 import { FormService } from './components/crud-form/services/form.service';
 import { ValidatorsService } from './components/crud-form/services/validator.service';
-import { TablaCRUDComponent } from './components/crud-form/table-crud.component.ts/table-crud.component';
+import { TablaCRUDComponent } from './components/crud-form/components/table-crud.component.ts/table-crud.component';
 import { CommunicationService } from './components/communication/services/communication.service';
 
 @NgModule({

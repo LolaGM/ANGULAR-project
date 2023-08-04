@@ -20,7 +20,7 @@
               </tr>
             </thead>
             <tbody>              
-              <tr *ngFor="let user of registers; let index = index;">
+              <tr *ngFor="let user of users; let index = index;">
                 <td>{{ user.name }} </td>
                 <td>{{ user.email }} </td>
                 <td>
@@ -29,8 +29,8 @@
                 <td>{{ user.country }} </td>
                 <td>{{ user.city }} </td>
                 <td class="action-buttons">
-                    <button type="button"                      class="btn btn-info" >Editar</button> 
-                    <button type="button" (click)="onClickDeleteRegister(user.id)"  class="btn btn-danger">Eliminar</button>
+                    <button type="button"  (click)="onClickEditUser(user)"  class="btn btn-info" >Editar</button> 
+                    <button type="button" (click)="onClickDeleteUser(user.id)"  class="btn btn-danger">Eliminar</button>
                 </td>
               </tr>
             </tbody>
