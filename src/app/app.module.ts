@@ -23,6 +23,7 @@ import { FormService } from './components/crud-form/services/form.service';
 import { ValidatorsService } from './components/crud-form/services/validator.service';
 import { TablaCRUDComponent } from './components/crud-form/components/table-crud.component.ts/table-crud.component';
 import { CommunicationService } from './components/communication/services/communication.service';
+import { UserUpdatedService } from './components/crud-form/services/user-updated.service';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { CommunicationService } from './components/communication/services/commun
   CommunicationService,
   ValidatorsService,
   FormService,
+  UserUpdatedService
 
   ],
 

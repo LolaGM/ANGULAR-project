@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { User } from '../interfaces/user.interface';
 
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 import { HttpClient } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
+import { UserUpdatedService } from './user-updated.service';
 
 
 @Injectable({ providedIn: 'root' })
@@ -13,22 +14,32 @@ export class FormService {
 
     private apiUrl = `${environment.apiUrl}/users`;
 
-    private formDataSubject: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
-    public formData$: Observable<User | null> = this.formDataSubject.asObservable();
+    private userSubject: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
+    public userChanges$: Observable<User | null> = this.userSubject.asObservable();
 
-    constructor(private http: HttpClient) {}
+    constructor(
+        private http: HttpClient,
+        private userUpdateFormTableService: UserUpdatedService) {}
 
     getUsers(): Observable<User[]> {
         return this.http.get<User[]>(this.apiUrl);
     }
 
     addUser(newUser: User): Observable<User> {
-        return this.http.post<User>(this.apiUrl, newUser);
+        return this.http.post<User>(this.apiUrl, newUser).pipe(
+            tap(() => {
+            this.userUpdateFormTableService.notifyUserUpdated();
+            })
+        );
     }
 
     updateUser(updatedUser: User): Observable<User> {
-        const url = `${this.apiUrl}/${updatedUser.id}`;
-        return this.http.put<User>(url, updatedUser);
+    const url = `${this.apiUrl}/${updatedUser.id}`;
+    return this.http.put<User>(url, updatedUser).pipe(
+        tap(() => {
+        this.userUpdateFormTableService.notifyUserUpdated();
+        })
+    );
     }
     
     deleteUser(id: number) {
@@ -36,16 +47,17 @@ export class FormService {
         return this.http.delete<User>(url);
     }
 
-    getFormData(): User | null {
-        return this.formDataSubject.getValue();
+    getUser(): User | null {
+        return this.userSubject.getValue();
+
     }
 
-    setFormData(formData: User) {
-        this.formDataSubject.next(formData);
+    setUser(user: User | null) {
+        this.userSubject.next(user);
     }
 
     getSelectedUserInForm(): Observable<User | null> {
-        return this.formDataSubject.asObservable();
+        return this.userSubject.asObservable();
     }
     
 }

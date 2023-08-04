@@ -18,7 +18,7 @@
       "email": "usuario2@example.com",
       "wantNotifications": true,
       "country": "France",
-      "city": "Lion"
+      "city": "Paris"
     },
     {
       "id": 3,
@@ -38,17 +38,7 @@
       "email": "maria@google.com",
       "wantNotifications": false,
       "country": "Spain",
-      "city": "Logroño"
-    },
-    {
-      "id": 6,
-      "name": "Yoama",
-      "password1": "123456",
-      "password2": "123456",
-      "email": "yoana@google.com",
-      "wantNotifications": true,
-      "country": "Virgin Islands (British)",
-      "city": "virgin"
+      "city": "Logroños"
     },
     {
       "id": 7,
@@ -57,18 +47,8 @@
       "password2": "123456",
       "email": "elena@google.com",
       "wantNotifications": false,
-      "country": "Madagascar",
-      "city": "Mada"
-    },
-    {
-      "id": 8,
-      "name": "Noa",
-      "password1": "123456",
-      "password2": "123456",
-      "email": "noa@google.com",
-      "wantNotifications": true,
-      "country": "Barbados",
-      "city": "Rihanna"
+      "country": "Luxembourg",
+      "city": "Estrasburgo"
     },
     {
       "id": 10,
@@ -77,8 +57,48 @@
       "password2": "123456",
       "email": "palo@google.com",
       "wantNotifications": false,
-      "country": "Mexico",
+      "country": "Marshall Islands (the)",
       "city": "Mexico"
+    },
+    {
+      "id": 11,
+      "name": "Carmen",
+      "password1": "123456",
+      "password2": "123456",
+      "email": "carmen@google.com",
+      "wantNotifications": false,
+      "country": "China",
+      "city": "Cali"
+    },
+    {
+      "id": 12,
+      "name": "Veronica",
+      "password1": "123456",
+      "password2": "123456",
+      "email": "veronica@google.com",
+      "wantNotifications": true,
+      "country": "Tunisia",
+      "city": "Kiev"
+    },
+    {
+      "id": 14,
+      "name": "Exito",
+      "password1": "123456",
+      "password2": "123456",
+      "email": "exito@google.com",
+      "wantNotifications": true,
+      "country": "Curaçao",
+      "city": "Quito"
+    },
+    {
+      "id": 15,
+      "name": "Xia",
+      "password1": "123456",
+      "password2": "123456",
+      "email": "xia@xia.com",
+      "wantNotifications": null,
+      "country": "China",
+      "city": "Santiago"
     }
   ]
 }

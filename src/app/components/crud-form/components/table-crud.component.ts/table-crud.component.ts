@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, S
 import { User } from '../../interfaces/user.interface';
 import { FormService } from '../../services/form.service';
 import { Subscription, switchMap } from 'rxjs';
+import { UserUpdatedService } from '../../services/user-updated.service';
 
 @Component({
   selector: 'app-table-crud',
@@ -13,28 +14,23 @@ import { Subscription, switchMap } from 'rxjs';
 export class TablaCRUDComponent implements OnInit,OnDestroy {
 
   public users: User[] = [];
-  private formDataSubscription: Subscription | undefined;
-  public formData: User | null = null;
   public selectedUserFromTable: User | null = null;
+  private userUpdatedSubscription!: Subscription;
 
   constructor(
       private formService: FormService,
-      ) { }
+      private userUpdateFormTableService: UserUpdatedService) {}
+
   
   ngOnInit() {
-    this.getUsers();
-
-    this.formDataSubscription = this.formService.formData$.subscribe((formData) => {
-        if (formData) {
-          this.formData = formData;    
-        }
+    this.readUsers();
+    this.userUpdatedSubscription = this.userUpdateFormTableService.formTableUpdatedSubject$.subscribe(() => {
+      this.readUsers();
     });
   }
 
-  ngOnDestroy() {
-    if (this.formDataSubscription) {
-      this.formDataSubscription.unsubscribe();
-    }
+  ngOnDestroy() {    
+      this.userUpdatedSubscription.unsubscribe();    
   }
 
   getUsers() {
@@ -49,12 +45,22 @@ export class TablaCRUDComponent implements OnInit,OnDestroy {
     );
   }
 
-  onClickEditUser(user: User) {
-    this.selectedUserFromTable = user;
-    this.formService.setFormData(user);
+  readUsers() {
+    this.formService.getUsers().subscribe(
+      (users) => {
+        this.users = users;
+      },
+      (error) => {
+        console.error('Error al cargar usuarios:', error);
+      }
+    );
   }
 
-  onClickDeleteUser(id: number) { 
+  onClickEditUser(user: User) {
+    this.formService.setUser(user);
+  }
+
+  onClickDeleteUser(user: User) { 
     Swal.fire({
       title: '¿De verdad quieres eliminar el usuario?',
       text: '¡El usuario será eliminado permanentemente!',
@@ -66,11 +72,12 @@ export class TablaCRUDComponent implements OnInit,OnDestroy {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.formService.deleteUser(id).pipe(
+        this.formService.deleteUser(user.id).pipe(
           switchMap((_) => this.formService.getUsers())         
         )
         .subscribe((users: User[]) => {
             this.users = users;
+            this.readUsers();
             Swal.fire(
               'Eliminado',
               'El usuario ha sido eliminado.',

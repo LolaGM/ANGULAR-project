@@ -67,26 +67,33 @@ export class FormComponent implements OnInit,OnDestroy{
   
   onSaveOrUpdateUser() {
     if (this.myForm.valid) {
-      const user: User = this.myForm.value;
-      if (user.id) {
-        this.formService.updateUser(user).subscribe(
+      const updatedUser: User = this.myForm.value;
+      const user = this.formService.getUser();
+      if (user) {
+        // Update existing user
+        this.formService.updateUser(updatedUser).subscribe(
           (response) => {
             console.log('Usuario actualizado:', response);
+            this.formService.setUser(null); // Reset the user after successful update
           },
           (error) => {
             console.error('Error al actualizar el usuario:', error);
           }
         );
       } else {
-        this.formService.addUser(user).subscribe(
+        // Add new user
+        this.formService.addUser(updatedUser).subscribe(
           (response) => {
             console.log('Usuario creado:', response);
+            this.formService.setUser(null); // Reset the user after successful creation
           },
           (error) => {
             console.error('Error al crear el usuario:', error);
           }
         );
       }
+    } else {
+      console.warn('Formulario no válido. Verifica los campos antes de guardar.');
     }
   }
 }
