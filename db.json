@@ -7,8 +7,8 @@
       "password2": "clave1",
       "email": "usuario1@example.com",
       "wantNotifications": true,
-      "country": "Alemania",
-      "city": "Ciudad 1"
+      "country": "Croatia",
+      "city": "Zagreb"
     },
     {
       "id": 2,
@@ -16,9 +16,9 @@
       "password1": "clave2",
       "password2": "clave2",
       "email": "usuario2@example.com",
-      "wantNotifications": false,
+      "wantNotifications": true,
       "country": "France",
-      "city": "Ciudad 2"
+      "city": "Lion"
     },
     {
       "id": 3,
@@ -28,7 +28,7 @@
       "email": "usuario3@example.com",
       "wantNotifications": true,
       "country": "Sri Lanka",
-      "city": "Ciudad 3"
+      "city": "Sri Lanka"
     },
     {
       "id": 5,
@@ -42,13 +42,23 @@
     },
     {
       "id": 6,
-      "name": "Roberto",
+      "name": "Yoama",
       "password1": "123456",
       "password2": "123456",
-      "email": "roberto@google.com",
-      "wantNotifications": null,
-      "country": "Cuba",
-      "city": "habana"
+      "email": "yoana@google.com",
+      "wantNotifications": false,
+      "country": "Virgin Islands (British)",
+      "city": "virgin"
+    },
+    {
+      "id": 7,
+      "name": "Yoama",
+      "password1": "123456",
+      "password2": "123456",
+      "email": "yoana@google.com",
+      "wantNotifications": false,
+      "country": "Yemen",
+      "city": "Yemen"
     }
   ]
 }

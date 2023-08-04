@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { countries } from '../../interfaces/country-data.model';
@@ -15,7 +15,7 @@ import { User } from '../../interfaces/user.interface';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit{
+export class FormComponent implements OnInit,OnDestroy{
 
   public countries:Countries[] = countries; 
 
@@ -48,6 +48,11 @@ export class FormComponent implements OnInit{
     private validatorsService: ValidatorsService,
     ){ }
 
+  ngOnDestroy(): void {
+    if (this.formDataSubscription) {
+      this.formDataSubscription.unsubscribe();
+    }
+  }
   
   ngOnInit(): void { 
     this.formService.getSelectedUserInForm().subscribe((user) => {
@@ -60,17 +65,32 @@ export class FormComponent implements OnInit{
     });
   }
   
-  onSubmit(): void {
-    if (this.myForm.valid) {    
-      this.formService.addUser(this.myForm.value)  
-      .pipe(
-        switchMap((_) => this.formService.getUsers())
-      )
-      .subscribe(users=> console.log(users))      
-      
-
-      this.myForm.reset();
+  onSaveOrUpdateUser() {
+    if (this.myForm.valid) {
+      const user: User = this.myForm.value;
+      if (user.id) {
+        this.formService.updateUser(user).subscribe(
+          (response) => {
+            console.log('Usuario actualizado:', response);
+          },
+          (error) => {
+            console.error('Error al actualizar el usuario:', error);
+          }
+        );
+      } else {
+        this.formService.addUser(user).subscribe(
+          (response) => {
+            console.log('Usuario creado:', response);
+          },
+          (error) => {
+            console.error('Error al crear el usuario:', error);
+          }
+        );
+      }
+    } else {
+      console.warn('Formulario no válido. Verifica los campos antes de guardar.');
     }
   }
+  
 
 }

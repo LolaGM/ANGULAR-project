@@ -1,7 +1,7 @@
 
 <div>  
   <div class="container-form">   
-    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="myForm" (ngSubmit)="onSaveOrUpdateUser()">
       <h4 class="form-title">
         Formulario de registro
       </h4>
@@ -98,7 +98,7 @@
         <button type="reset"  class="btn btn-warning  form-button">Limpiar</button>
         <button
           type="submit"
-          (click)="onSubmit()"
+          (click)="onSaveOrUpdateUser()"
           class="btn btn-primary form-button">
           {{ isEditMode ? 'Actualizar': 'Guardar'}}
         </button>

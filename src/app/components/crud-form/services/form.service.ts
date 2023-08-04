@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../interfaces/user.interface';
 
-import { BehaviorSubject, Observable, catchError } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import { HttpClient } from '@angular/common/http';
 
@@ -26,19 +26,10 @@ export class FormService {
         return this.http.post<User>(this.apiUrl, newUser);
     }
 
-    getSelectedUserInForm(): Observable<User | null> {
-        return this.formDataSubject.asObservable();
+    updateUser(updatedUser: User): Observable<User> {
+        const url = `${this.apiUrl}/${updatedUser.id}`;
+        return this.http.put<User>(url, updatedUser);
     }
-
-    isEqual(userTable: User, userForm: User): boolean {
-        return JSON.stringify(userTable) === JSON.stringify(userForm);
-    }
-
-    editUser(editedUser: User): Observable<User> {
-        const url = `${this.apiUrl}/${editedUser.id}`;
-        return this.http.put<User>(url, editedUser);
-    }
-
     
     deleteUser(id: number) {
         const url = `${this.apiUrl}/${id.toString()}`;
@@ -51,6 +42,10 @@ export class FormService {
 
     setFormData(formData: User) {
         this.formDataSubject.next(formData);
+    }
+
+    getSelectedUserInForm(): Observable<User | null> {
+        return this.formDataSubject.asObservable();
     }
     
 }
