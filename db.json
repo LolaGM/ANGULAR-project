@@ -26,7 +26,7 @@
       "password1": "clave2",
       "password2": "clave2",
       "email": "usuario3@example.com",
-      "wantNotifications": true,
+      "wantNotifications": false,
       "country": "Sri Lanka",
       "city": "Sri Lanka"
     },
@@ -46,19 +46,39 @@
       "password1": "123456",
       "password2": "123456",
       "email": "yoana@google.com",
-      "wantNotifications": false,
+      "wantNotifications": true,
       "country": "Virgin Islands (British)",
       "city": "virgin"
     },
     {
       "id": 7,
-      "name": "Yoama",
+      "name": "Elena",
       "password1": "123456",
       "password2": "123456",
-      "email": "yoana@google.com",
+      "email": "elena@google.com",
       "wantNotifications": false,
-      "country": "Yemen",
-      "city": "Yemen"
+      "country": "Madagascar",
+      "city": "Mada"
+    },
+    {
+      "id": 8,
+      "name": "Noa",
+      "password1": "123456",
+      "password2": "123456",
+      "email": "noa@google.com",
+      "wantNotifications": true,
+      "country": "Barbados",
+      "city": "Rihanna"
+    },
+    {
+      "id": 10,
+      "name": "Paloma",
+      "password1": "123456",
+      "password2": "123456",
+      "email": "palo@google.com",
+      "wantNotifications": false,
+      "country": "Mexico",
+      "city": "Mexico"
     }
   ]
 }
