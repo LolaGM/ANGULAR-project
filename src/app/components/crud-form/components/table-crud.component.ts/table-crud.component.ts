@@ -26,7 +26,7 @@ export class TablaCRUDComponent implements OnInit,OnDestroy {
 
     this.formDataSubscription = this.formService.formData$.subscribe((formData) => {
         if (formData) {
-            this.users.push(formData);
+          this.formData = formData;    
         }
     });
   }
