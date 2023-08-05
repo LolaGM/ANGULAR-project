@@ -15,8 +15,8 @@ import { SearchOnComponent } from './components/search-on/search-on.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { GraphsComponent } from './components/graphs/graphs.component';
 import { SwitcherComponent } from './components/switcher/switcher.component';
-import { ChildComponent } from './components/communication/child/child.component';
-import { ParentComponent } from './components/communication/parent/parent.component';
+import { ChildComponent } from './components/communication/components/child/child.component';
+import { ParentComponent } from './components/communication/components/parent/parent.component';
 import { FormComponent } from './components/crud-form/components/form/form.component';
 
 import { FormService } from './components/crud-form/services/form.service';
@@ -24,6 +24,7 @@ import { ValidatorsService } from './components/crud-form/services/validator.ser
 import { TablaCRUDComponent } from './components/crud-form/components/table-crud.component.ts/table-crud.component';
 import { CommunicationService } from './components/communication/services/communication.service';
 import { UserUpdatedService } from './components/crud-form/services/user-updated.service';
+import { MenuComponent } from './components/search-on/components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -40,14 +41,15 @@ import { UserUpdatedService } from './components/crud-form/services/user-updated
     GraphsComponent,
     SwitcherComponent,
     FormComponent,
-    TablaCRUDComponent
+    TablaCRUDComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,    
     CommonModule,
-    HttpClientModule 
+    HttpClientModule,
 
   ],  
   
