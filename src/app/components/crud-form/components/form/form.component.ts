@@ -39,8 +39,8 @@ export class FormComponent implements OnInit,OnDestroy{
     },
     {
       validators: this.validatorsService.isFieldOneEqualFieldTwo('password1', 'password2')
-    });
-
+    }
+  );
 
   constructor(
     private fb: FormBuilder,
@@ -70,22 +70,20 @@ export class FormComponent implements OnInit,OnDestroy{
       const updatedUser: User = this.myForm.value;
       const user = this.formService.getUser();
       if (user) {
-        // Update existing user
         this.formService.updateUser(updatedUser).subscribe(
           (response) => {
             console.log('Usuario actualizado:', response);
-            this.formService.setUser(null); // Reset the user after successful update
+            this.formService.setUser(null); 
           },
           (error) => {
             console.error('Error al actualizar el usuario:', error);
           }
         );
       } else {
-        // Add new user
         this.formService.addUser(updatedUser).subscribe(
           (response) => {
             console.log('Usuario creado:', response);
-            this.formService.setUser(null); // Reset the user after successful creation
+            this.formService.setUser(null); 
           },
           (error) => {
             console.error('Error al crear el usuario:', error);

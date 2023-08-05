@@ -6,14 +6,11 @@
 .container-form-table{
     display: flex;
     flex-direction: column;
-    border: 5px solid green !important;
 }
 
 .container-form{
     font-family: 'Kanit', sans-serif;
     display: flex;
-
-
 }
 
 .form-label-name{

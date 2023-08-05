@@ -36,10 +36,10 @@ export class FormService {
     updateUser(updatedUser: User): Observable<User> {
     const url = `${this.apiUrl}/${updatedUser.id}`;
     return this.http.put<User>(url, updatedUser).pipe(
-        tap(() => {
-        this.userUpdateFormTableService.notifyUserUpdated();
-        })
-    );
+            tap(() => {
+            this.userUpdateFormTableService.notifyUserUpdated();
+            })
+        );
     }
     
     deleteUser(id: number) {
@@ -49,7 +49,6 @@ export class FormService {
 
     getUser(): User | null {
         return this.userSubject.getValue();
-
     }
 
     setUser(user: User | null) {
@@ -58,6 +57,5 @@ export class FormService {
 
     getSelectedUserInForm(): Observable<User | null> {
         return this.userSubject.asObservable();
-    }
-    
+    } 
 }
