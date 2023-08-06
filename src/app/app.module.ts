@@ -5,9 +5,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchOnMenuModule } from './components/search-on/search-on-menu.module';
+
+
+import { CommunicationService } from './components/communication/services/communication.service';
+import { UserUpdatedService } from './components/crud-form/services/user-updated.service';
+import { FormService } from './components/crud-form/services/form.service';
+import { ValidatorsService } from './components/crud-form/services/validator.service';
 
 import { PartOnePageComponent } from './pages/part-one/part-one-page.component';
 import { PartTwoPageComponent } from './pages/part-two/part-two-page.component';
+
 import { DisplayComponent } from './components/display/display.component';
 import { CommunicationComponent } from './components/communication/communication.component';
 import { CrudFormComponent } from './components/crud-form/crud-form.component';
@@ -18,13 +26,8 @@ import { SwitcherComponent } from './components/switcher/switcher.component';
 import { ChildComponent } from './components/communication/components/child/child.component';
 import { ParentComponent } from './components/communication/components/parent/parent.component';
 import { FormComponent } from './components/crud-form/components/form/form.component';
+import { TablaCRUDComponent } from './components/crud-form/components/table-crud/table-crud.component';
 
-import { FormService } from './components/crud-form/services/form.service';
-import { ValidatorsService } from './components/crud-form/services/validator.service';
-import { TablaCRUDComponent } from './components/crud-form/components/table-crud.component.ts/table-crud.component';
-import { CommunicationService } from './components/communication/services/communication.service';
-import { UserUpdatedService } from './components/crud-form/services/user-updated.service';
-import { MenuComponent } from './components/search-on/components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -41,16 +44,16 @@ import { MenuComponent } from './components/search-on/components/menu/menu.compo
     GraphsComponent,
     SwitcherComponent,
     FormComponent,
-    TablaCRUDComponent,
-    MenuComponent
+    TablaCRUDComponent  
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,    
     CommonModule,
     HttpClientModule,
-
+    SearchOnMenuModule
   ],  
   
   providers: [ 

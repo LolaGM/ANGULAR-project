@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./actors.component.css']
 })
 export class ActorsComponent {
+  title: string = 'Actors';
 
 }

@@ -6,14 +6,46 @@
     font-weight: 700;
 }
 
+.title-menu{
+    margin-right: 20px;
+    color: #0275d8;
+}
+
 .search-on-container{
+    margin-top: 1%;
     display: flex;
     flex-direction: column;
-    border-radius: 5px;
+    border: 2px solid #0275d8;
+    border-radius: 10px;
     padding: 2% 4%;
     margin-left: 12%;
     margin-right: 12%;
-    margin-top: 1%;
-    max-width: 100%;
+    font-family: 'Kanit', sans-serif;
 }
+
+.search-on-container-menu {
+    font-family: 'Kanit', sans-serif;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-items {
+    font-family: 'Kanit', sans-serif;
+    cursor: pointer;
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    color: #01539A;
+    border: solid 1px #01539A;
+}
+
+.findings{
+    margin-top: 2%;
+    display: flex;
+    border: 2px solid red !important;
+}
+
+
 

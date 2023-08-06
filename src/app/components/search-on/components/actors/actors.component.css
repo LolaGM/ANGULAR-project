@@ -1,0 +1,19 @@
+.search-form-input-style {
+    display: flex; 
+    flex-direction: row;
+    border: 2px solid orange !important;
+    justify-content: center !important;
+
+
+}
+
+.form-search-style{
+    display: flex;
+    width: 600px;
+
+}
+
+
+.results {
+    border: 2px solid green !important;
+}

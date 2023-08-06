@@ -12,6 +12,7 @@ import { CounterComponent } from './components/counter/counter.component';
 import { GraphsComponent } from './components/graphs/graphs.component';
 import { SwitcherComponent } from './components/switcher/switcher.component';
 
+
 const routes: Routes = [
   {
     path: 'part-one',
@@ -31,14 +32,19 @@ const routes: Routes = [
       },
       {
         path: 'search-on',
-        component: SearchOnComponent
+        component: SearchOnComponent,
+        children: [ 
+          { path: 'search-menu',
+          loadChildren: () => import('./components/search-on/search-on-menu.module').then(m => m.SearchOnMenuModule) },  
+        ]
       },
     ]
   },
+
   {
     path: 'part-two', 
     component: PartTwoPageComponent,
-    children: [ //rutas hija que aparecerá en navegador como /part-two/switcher o el elemento que hagamos clic
+    children: [
       {
         path: 'switcher',
         component: SwitcherComponent
@@ -53,10 +59,13 @@ const routes: Routes = [
       },
     ]
   },
+
   {
     path: '**',
     redirectTo: 'part-one'
-  }
+  },
+
+  
 ];
 
 @NgModule({

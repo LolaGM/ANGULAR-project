@@ -1,6 +1,33 @@
-<div>
-    <h3 class="title-component">Search-on type</h3>
-</div> 
+<h3 class="title-component">Search-on type</h3>
+
 <div class="search-on-container">
-    <app-menu></app-menu>
+    <div class="search-on-container-menu">
+        <nav>
+            <ul class="list-group list-group-horizontal">    
+                <li
+                    routerLink="search-menu/movies"
+                    routerLinkActive="active"
+                    class="list-group-item menu-items menu-individual-item">
+                    🎦 Movies
+                </li>
+            
+                <li
+                    routerLink="search-menu/actors"
+                    routerLinkActive="active"
+                    class="list-group-item menu-items menu-individual-item">
+                    🎭 Actors
+                </li>
+            
+                <li
+                    routerLink="search-menu/directors"
+                    routerLinkActive="active"
+                    class="list-group-item menu-items menu-individual-item">
+                    🎬 Directors
+                </li>
+            </ul>
+        </nav> 
+    </div>
+    <div class="findings">
+        <router-outlet></router-outlet>
+    </div>
 </div>

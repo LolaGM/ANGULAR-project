@@ -2,30 +2,30 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { MenuComponent } from './components/menu/menu.component';
 import { ActorsComponent } from './components/actors/actors.component';
 import { MoviesComponent } from './components/movies/movies.component';
-import { GenresComponent } from './components/genres/genres.component';
-
+import { DirectorsComponent } from './components/directors/directors.component';
 
 @NgModule({
-  declarations: [   
-    MenuComponent,
+  declarations: [
     ActorsComponent,
     MoviesComponent,
-    GenresComponent
+    DirectorsComponent
   ],
+
   imports: [
     CommonModule,
     RouterModule.forChild([
-      path: 'search-menu',
-        component: MenuComponent,
+      {
+        path: '',
         children: [
+          { path: '', redirectTo: 'movies', pathMatch: 'full' }, 
           { path: 'movies', component: MoviesComponent },
           { path: 'actors', component: ActorsComponent },
-          { path: 'genres', component: GenresComponent },
+          { path: 'directors', component: DirectorsComponent },
         ]
+      }
     ])
   ]
 })
-export class SearchMenuModule { }
+export class SearchOnMenuModule { }
