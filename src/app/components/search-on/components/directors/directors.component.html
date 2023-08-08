@@ -1,6 +1,13 @@
-<div class="search-form-input-style"> 
+<!-- <div class="search-form-input-style"> 
     <form class="form-inline form-search-style  my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <input 
+            class="form-control mr-sm-2" 
+            type="search" 
+            placeholder="Search" 
+            aria-label="Search"
+            [(ngModel)]="searchTerm" 
+            name="searchTerm"
+            (keyup)="onSearchDirectors()">
     </form>
 </div>
 
@@ -8,4 +15,9 @@
     <p>
         Results found in {{title}}
     </p>
-</div>
+    <ul>
+        <li *ngFor="let director of directors">
+            {{ director.name }}
+        </li>
+    </ul>
+</div> -->
