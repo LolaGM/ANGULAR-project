@@ -6,6 +6,8 @@ import { Movie, Result } from '../interfaces/movies.interface';
 import { Observable} from 'rxjs';
 
 import { apiKey } from '../../../../config';
+import { Actor } from '../interfaces/actors.interface';
+import { Director } from '../interfaces/directors.interface';
 
 
 @Injectable({
@@ -22,6 +24,16 @@ export class CinemaService {
     getMoviesByQuery(query: string, page:number = 1, limit: number = 10): Observable<Movie> {
         console.log(query);
         return this.http.get<Movie>(`${this.apiUrl}/search/movie?api_key=${this.apiKey}&query=${query}&page=${page}&limit=${limit}`);
+    }
+
+    getActorsByQuery(query: string, page:number = 1, limit: number = 10): Observable<Actor> {
+      console.log(query);
+      return this.http.get<Actor>(`${this.apiUrl}/search/person?api_key=${this.apiKey}&query=${query}&page=${page}&limit=${limit}`);
+    }
+
+    getDirectorsByQuery(query: string, page:number = 1, limit: number = 10): Observable<Director> {
+      console.log(query);
+      return this.http.get<Director>(`${this.apiUrl}/search/person?api_key=${this.apiKey}&query=${query}&page=${page}&limit=${limit}`);
     }
 
 }

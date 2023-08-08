@@ -31,20 +31,16 @@
     align-items: center;
 }
 
+.active {
+    background:#72baf7; 
+}
+
 .menu-items {
     font-family: 'Kanit', sans-serif;
     cursor: pointer;
-    width: 200px;
+    width: 150px;
     display: flex;
     justify-content: space-around;
     color: #01539A;
     border: solid 1px #01539A;
 }
-
-.findings{
-    margin-top: 2%;
-    display: flex;
-}
-
-
-

@@ -16,6 +16,9 @@ export class MoviesComponent {
 
   constructor(private cinemaService: CinemaService) { }
 
+  ngOnInit(): void {
+  }
+  
   searchByMovie(term:string):void{
 
     this.cinemaService.getMoviesByQuery(term,1,10)

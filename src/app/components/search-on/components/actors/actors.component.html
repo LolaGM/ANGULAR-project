@@ -1,29 +1,23 @@
-<!-- <div class="search-form-input-style"> 
-    <form class="form-inline form-search-style  my-2 my-lg-0">
-        <input 
-            type="text" 
-            [(ngModel)]="searchInput" 
-            name="searchInput"
-            (keyup)="onSearchActors()" 
-            placeholder="Search...">
-    </form>
+<div >
+    <div class="input-group input-group-sm mb-3 searchbox-container">
+        <app-searchbox 
+            (onDebounce)="searchByActor($event)"
+            [initialValue]="initialValue"
+            placeholder="Search"
+            >
+        </app-searchbox>
+    </div>
 </div>
 
-<div class="results">
-    <p>
-        Results found in {{title}}:
-    </p>
+<div class="results" *ngIf="actors.length > 0">
+    <div class="card" style="width: 18rem;" *ngFor="let actor of actors">
+        <div class="card-body">
+            <h5 class="card-title card-title-style" >{{ actor.name }} </h5>
+            <p>Popularity: {{ actor.popularity }}</p>            
+        </div>
+    </div>
 </div>
-<div class="results">
-    <div *ngIf="searchResults.length > 0">
-        <ul>
-            <li *ngFor="let actor of actors">
-                {{ actor.name }}
-            </li>
-        </ul>
-    </div>
-    
-    <div *ngIf="searchInput && searchResults.length === 0">
-        No results found with the search terms
-    </div>
-</div> -->
+
+<div *ngIf="actors.length === 0 ">
+    No results found with the search terms
+</div>

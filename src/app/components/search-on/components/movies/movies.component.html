@@ -1,6 +1,6 @@
-<div class="row">
-    <div class="col">
-        <app-searchbox
+<div >
+    <div class="input-group input-group-sm mb-3 searchbox-container">
+        <app-searchbox 
             (onDebounce)="searchByMovie($event)"
             [initialValue]="initialValue"
             placeholder="Search"
@@ -9,19 +9,16 @@
     </div>
 </div>
 
-<div class="results">
-    <ul>
-        <li *ngIf="movies.length > 0">
-            <p *ngFor="let movie of movies">
-                {{ movie.title}} - Release {{ movie.release_date }}
-            </p>
-        </li>   
-    </ul>
-
-    <div *ngIf="movies.length === 0 ">
-        No results found with the search terms
+<div class="results" *ngIf="movies.length > 0">
+    <div class="card" style="width: 18rem;" *ngFor="let movie of movies">
+        <div class="card-body">
+            <h5 class="card-title card-title-style" >{{ movie.title }} </h5>
+            <p>Release {{ movie.release_date }}</p>
+            
+        </div>
     </div>
 </div>
-<!-- <pre>
-    {{ movies | json }}
-</pre> -->
+
+<div *ngIf="movies.length === 0 ">
+    No results found with the search terms
+</div>

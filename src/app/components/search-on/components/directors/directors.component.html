@@ -1,23 +1,23 @@
-<!-- <div class="search-form-input-style"> 
-    <form class="form-inline form-search-style  my-2 my-lg-0">
-        <input 
-            class="form-control mr-sm-2" 
-            type="search" 
-            placeholder="Search" 
-            aria-label="Search"
-            [(ngModel)]="searchTerm" 
-            name="searchTerm"
-            (keyup)="onSearchDirectors()">
-    </form>
+<div >
+    <div class="input-group input-group-sm mb-3 searchbox-container">
+        <app-searchbox 
+            (onDebounce)="searchByDirector($event)"
+            [initialValue]="initialValue"
+            placeholder="Search"
+            >
+        </app-searchbox>
+    </div>
 </div>
 
-<div class="results">
-    <p>
-        Results found in {{title}}
-    </p>
-    <ul>
-        <li *ngFor="let director of directors">
-            {{ director.name }}
-        </li>
-    </ul>
-</div> -->
+<div class="results" *ngIf="directors.length > 0">
+    <div class="card" style="width: 18rem;" *ngFor="let director of directors">
+        <div class="card-body">
+            <h5 class="card-title card-title-style" >{{ director.name }} </h5>
+            <p>Films: </p>            
+        </div>
+    </div>
+</div>
+
+<div *ngIf="directors.length === 0 ">
+    No results found with the search terms
+</div>

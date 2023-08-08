@@ -1,8 +1,10 @@
-<input 
+<div class="search-container">
+    <input 
     type="text"    
-    class="form-control se"
+    class="form-control searchbox-style col-12"
     [placeholder]="placeholder"
     (keyup)="onKeyPress(txtInput.value)"
     [value] ="initialValue"
     #txtInput
 >
+</div>

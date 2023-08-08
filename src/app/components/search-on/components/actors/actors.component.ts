@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Actor } from '../../interfaces/actors.interface';
+import { Actor, Result } from '../../interfaces/actors.interface';
 
 import { CinemaService } from '../../services/cinema.service';
 
@@ -12,27 +12,26 @@ export class ActorsComponent {
 
   public title: string = 'Actors';
 
-  public actors: Actor[] = [];
-  public searchInput: string = '';
-  public searchResults: Actor[] = [];
+  public actors: Result[] = [];
+  public initialValue:string = '';
+
 
   constructor(private cinemaService: CinemaService) { }
 
   ngOnInit(): void {
   }
 
- /*  onSearchMovies() {
-    if (this.searchInput && this.searchInput.length > 0) {
-        this.cinemaService.searchActors(this.searchInput).subscribe(
-        (actors: Actor[]) => {
-          this.searchResults = actors;
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-    } else {
-      this.searchResults = [];
-    }
-  } */
+  searchByActor(term:string):void{
+
+    this.cinemaService.getActorsByQuery(term,1,10)
+      .subscribe(actors => {
+        console.log(actors);
+        
+        this.actors = actors.results;
+      });
+    
+    console.log(this.actors);
+  }
+
+
 }

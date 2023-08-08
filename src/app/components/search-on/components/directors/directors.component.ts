@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Director } from '../../interfaces/directors.interface';
+
+import { Result } from '../../interfaces/directors.interface';
 import { CinemaService } from '../../services/cinema.service';
 
 @Component({
@@ -10,32 +11,24 @@ import { CinemaService } from '../../services/cinema.service';
 export class DirectorsComponent {
   title: string = 'Directors';
 
-  public directors: Director[] = [];
-
-  public searchTerm: string = '';
-  public searchResults: Director[] = [];
-
+  public directors: Result[] = [];
+  public initialValue:string = '';
 
   constructor(private cinemaService: CinemaService) { }
 
   ngOnInit(): void {
   }
+  
+  searchByDirector(term:string):void{
 
-/*   onSearchDirectors(): void {
-    if (this.searchTerm.trim() !== '') {
-      this.cinemaService.getMovies(this.searchTerm)
-        .subscribe(
-          (director: Director[]) => {
-            this.searchResults = director;
-          },
-          (error: any) => {
-            console.error('Error al buscar películas:', error);
-          }
-      );
-    } else {
-      this.searchResults = [];
-    }
-  } */
-
+    this.cinemaService.getDirectorsByQuery(term,1,10)
+      .subscribe(directors => {
+        console.log(directors);
+        
+        this.directors = directors.results;
+      });
+    
+    console.log(this.directors);
+  }
 
 }

@@ -1,6 +1,22 @@
-.search-form-input-style{
-    width: 400px;
-    flex: 1; 
-    margin-right: 10px; 
+.results{
+    margin: 2% 2%;
+    color: #01539A;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
+
+.searchbox-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.card-title-style{
+    color: #01539A;
+    font-weight: 500;
+}
+
 
