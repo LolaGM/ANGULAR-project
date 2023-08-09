@@ -11,9 +11,11 @@
 
 <div class="results" *ngIf="actors.length > 0">
     <div class="card" style="width: 18rem;" *ngFor="let actor of actors">
-        <div class="card-body">
+        <div class="card-body card-style">
             <h5 class="card-title card-title-style" >{{ actor.name }} </h5>
-            <p>Popularity: {{ actor.popularity }}</p>            
+            <h6 class="card-title-style">Popularity: {{ actor.popularity }}</h6>     
+            <img *ngIf="actor.profile_path" class="image-card-style" src="https://image.tmdb.org/t/p/w154{{ actor.profile_path }}" alt="{{ actor.name }} Poster">
+            <img *ngIf="!actor.profile_path" src="../../../../assets/no-image.png" alt="No Photo Available">
         </div>
     </div>
 </div>

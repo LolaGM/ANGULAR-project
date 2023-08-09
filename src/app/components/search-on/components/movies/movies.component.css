@@ -14,10 +14,18 @@
     margin-top: 2%;
 }
 
+.card-style{
+    text-align: center;
+}
+
 .card-title-style{
     color: #01539A;
     text-align: center;
     font-weight: 500;
+}
+
+.image-card-style{
+    border-radius: 10px;
 }
 
 

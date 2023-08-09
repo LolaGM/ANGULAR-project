@@ -11,9 +11,13 @@
 
 <div class="results" *ngIf="directors.length > 0">
     <div class="card" style="width: 18rem;" *ngFor="let director of directors">
-        <div class="card-body">
+        <div class="card-body card-style">
             <h5 class="card-title card-title-style" >{{ director.name }} </h5>
-            <p>Films: </p>            
+            <h6 class="card-title-style">Popularity: {{ director.popularity}} </h6>   
+            <img *ngIf="director.profile_path" class="image-card-style" src="https://image.tmdb.org/t/p/w154{{ director.profile_path }}" alt="{{ director.name }} Poster">
+            <img *ngIf="!director.profile_path" src="../../../../assets/no-image.png" alt="No Photo Available">
+        
+
         </div>
     </div>
 </div>

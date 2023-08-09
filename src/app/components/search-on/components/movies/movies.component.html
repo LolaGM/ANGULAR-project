@@ -11,9 +11,11 @@
 
 <div class="results" *ngIf="movies.length > 0">
     <div class="card" style="width: 18rem;" *ngFor="let movie of movies">
-        <div class="card-body">
+        <div class="card-body card-style">
             <h5 class="card-title card-title-style" >{{ movie.title }} </h5>
-            <p>Release {{ movie.release_date }}</p>
+            <h6 class="card-title-style">Release {{ movie.release_date }}</h6>
+            <img class="image-card-style" src="https://image.tmdb.org/t/p/w154{{ movie.poster_path }}" alt="{{ movie.title }} Poster">
+
             
         </div>
     </div>
