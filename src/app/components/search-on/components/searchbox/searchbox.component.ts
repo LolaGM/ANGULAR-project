@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { Subject, Subscription, debounceTime } from 'rxjs';
+
+import { Subject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-searchbox',
@@ -35,7 +36,7 @@ export class SearchboxComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
       console.log('destruido');
-      this.debouncer.unsubscribe();//nos desuscribimos para no estar pendientes de búsqueda
+      this.debouncer.unsubscribe();
       this.debouncerSubscription?.unsubscribe();
   }
 

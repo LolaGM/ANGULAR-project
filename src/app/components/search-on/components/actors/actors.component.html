@@ -15,7 +15,7 @@
             <h5 class="card-title card-title-style" >{{ actor.name }} </h5>
             <h6 class="card-title-style">Popularity: {{ actor.popularity }}</h6>     
             <img *ngIf="actor.profile_path" class="image-card-style" src="https://image.tmdb.org/t/p/w154{{ actor.profile_path }}" alt="{{ actor.name }} Poster">
-            <img *ngIf="!actor.profile_path" src="../../../../assets/no-image.png" alt="No Photo Available">
+            <img *ngIf="!actor.profile_path" class="no-profile" src="https://cdn-icons-png.flaticon.com/512/1104/1104294.png?w=826&t=st=1691566687~exp=1691567287~hmac=13d4200b521d14199954b08c4e0c38115639a37a7f8d42be62fb43283692dc31" alt="No Photo Available">
         </div>
     </div>
 </div>

@@ -1,6 +1,9 @@
 import { Component, OnDestroy } from '@angular/core';
+
 import { CinemaService } from '../../services/cinema.service';
+
 import { Result } from '../../interfaces/movies.interface';
+
 import { Subscription } from 'rxjs';
 
 @Component({
