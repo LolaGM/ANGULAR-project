@@ -27,6 +27,9 @@ import { ChildComponent } from './components/communication/components/child/chil
 import { ParentComponent } from './components/communication/components/parent/parent.component';
 import { FormComponent } from './components/crud-form/components/form/form.component';
 import { TablaCRUDComponent } from './components/crud-form/components/table-crud/table-crud.component';
+import { TrafficComponent } from './components/switcher/components/traffic/traffic.component';
+import { ControllerComponent } from './components/switcher/components/controller/controller.component';
+import { TrafficlightService } from './components/switcher/services/trafficlight.service';
 
 
 @NgModule({
@@ -44,7 +47,10 @@ import { TablaCRUDComponent } from './components/crud-form/components/table-crud
     GraphsComponent,
     SwitcherComponent,
     FormComponent,
-    TablaCRUDComponent  
+    TablaCRUDComponent,
+    TrafficComponent,
+    ControllerComponent
+
   ],
 
   imports: [
@@ -53,14 +59,16 @@ import { TablaCRUDComponent } from './components/crud-form/components/table-crud
     ReactiveFormsModule,    
     CommonModule,
     HttpClientModule,
-    SearchOnMenuModule
+    SearchOnMenuModule,
+
   ],  
   
   providers: [ 
   CommunicationService,
   ValidatorsService,
   FormService,
-  UserUpdatedService
+  UserUpdatedService,
+  TrafficlightService
 
   ],
 

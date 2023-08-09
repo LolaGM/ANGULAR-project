@@ -1,0 +1,14 @@
+.light-controller{
+    display: flex;
+    flex-direction: row;
+    margin-bottom:30%;
+    margin-top: 50%;
+    border: 2px solid #0275d8;
+    border-radius: 10px;
+    padding: 6%;
+}
+
+
+.select-controller{
+    margin-right: 5%;
+}
