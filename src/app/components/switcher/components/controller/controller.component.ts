@@ -21,13 +21,6 @@ export class ControllerComponent implements OnInit, OnDestroy{
     });
   }  
   
-
-  onColorChange(newColor: string) {
-
-    console.log('Color changed:', newColor);
-    this.trafficlightService.setActiveColor(newColor);
-  }
-
   onColorActivation() {
     console.log('Before toggle: isTrafficLightOn =', this.isTrafficLightOn);  
     this.isTrafficLightOn = !this.isTrafficLightOn;
@@ -35,6 +28,12 @@ export class ControllerComponent implements OnInit, OnDestroy{
     this.trafficlightService.setIsActivated(this.isTrafficLightOn);  
     console.log('After toggle: isTrafficLightOn =', this.isTrafficLightOn);
   }
+
+  onColorChange(newColor: string) {
+    console.log('Color changed:', newColor);
+    this.trafficlightService.setActiveColor(newColor);
+  }
+
 
   ngOnDestroy(): void {
     if(this.subscription){
