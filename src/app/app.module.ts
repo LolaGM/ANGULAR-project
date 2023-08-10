@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -29,7 +29,9 @@ import { FormComponent } from './components/crud-form/components/form/form.compo
 import { TablaCRUDComponent } from './components/crud-form/components/table-crud/table-crud.component';
 import { TrafficComponent } from './components/switcher/components/traffic/traffic.component';
 import { ControllerComponent } from './components/switcher/components/controller/controller.component';
+
 import { TrafficlightService } from './components/switcher/services/trafficlight.service';
+import { SwitcherModule } from './components/switcher/switcher.module';
 
 
 @NgModule({
@@ -50,16 +52,19 @@ import { TrafficlightService } from './components/switcher/services/trafficlight
     TablaCRUDComponent,
     TrafficComponent,
     ControllerComponent
+  
 
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,    
+    ReactiveFormsModule,   
+    FormsModule, 
     CommonModule,
     HttpClientModule,
     SearchOnMenuModule,
+    SwitcherModule
 
   ],  
   

@@ -3,15 +3,16 @@ import { CommonModule } from '@angular/common';
 
 import { TrafficComponent } from './components/traffic/traffic.component';
 import { ControllerComponent } from './components/controller/controller.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    TrafficComponent,
-    ControllerComponent
+  
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ]
 })
 export class SwitcherModule { }

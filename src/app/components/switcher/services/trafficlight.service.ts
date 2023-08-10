@@ -10,7 +10,7 @@ export class TrafficlightService {
     private activeColorSubject = new Subject<string>();
     private isActivatedSubject = new Subject<boolean>();
 
-   getActiveColor(): Observable<string> {
+    getActiveColor(): Observable<string> {
         return this.activeColorSubject.asObservable();
     }
 
@@ -18,7 +18,7 @@ export class TrafficlightService {
         this.activeColorSubject.next(color);
     }
 
-   getIsActivated(): Observable<boolean> {
+    getIsActivated(): Observable<boolean> {
         return this.isActivatedSubject.asObservable();
     }
 

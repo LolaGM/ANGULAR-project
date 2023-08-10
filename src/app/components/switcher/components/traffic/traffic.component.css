@@ -6,7 +6,6 @@
     font-weight: 700;
 }
 
-
 .trafficlight-container {
     margin-top: 2%;
     display: flex;
@@ -16,7 +15,6 @@
     padding: 2% 4%;
     margin-left: 12%;
     margin-right: 12%;
-
 }
 
 .trafficlight {
@@ -27,32 +25,23 @@
     border-radius: 20px;
     position: relative;
     border: solid 5px #333;
+    box-shadow:
+        0 0 20px #111 inset,
+        0 0 10px #0275d8;
 }
 
-.trafficlight:before {
-    background: #222;
-    background-image: radial-gradient(#444, #000);
-    content: "";
-    width: 170px;
-    height: 150px;
-    margin: 0 auto;
-    position: absolute;
-    top: -20px;
-    margin-left: 0px;
-    border-radius: 50%;
-    z-index: -1;
+.trafficlight.is-on .red,
+.trafficlight.is-on .yellow,
+.trafficlight.is-on .green {
+    animation-play-state: running;
+    opacity: 1;
 }
 
-.trafficlight:after {
-    background: #222;
-    background-image: linear-gradient(-90deg, #222 0%, #444 30%, #000);
-    content: "";
-    width: 50px;
-    height: 500px;
-    margin-left: 60px;
-    position: absolute;
-    top: 150px;
-    z-index: -1;
+.trafficlight .red,
+.trafficlight .yellow,
+.trafficlight .green {
+    animation-play-state: paused;
+    opacity: 0.2;
 }
 
 
@@ -66,11 +55,13 @@
     position: absolute;
     top: 20px;
     left: 35px;
-    animation: 13s red infinite;
+    animation: red-animation infinite;
     border: dotted 2px red;
     box-shadow:
         0 0 20px #111 inset,
         0 0 10px red;
+    animation: red-animation infinite;
+
 }
 
 .yellow {
@@ -84,10 +75,12 @@
     position: absolute;
     top: 145px;
     left: 35px;
-    animation: 13s yellow infinite;
+    animation: yellow-animation infinite;
     box-shadow:
         0 0 20px #111 inset,
         0 0 10px yellow;
+    animation: yellow-animation infinite;
+
 }
 
 .green {
@@ -104,5 +97,7 @@
     box-shadow:
         0 0 20px #111 inset,
         0 0 10px lime;
-    animation: 13s green infinite;
+    animation: green-animation infinite;
 }
+
+
