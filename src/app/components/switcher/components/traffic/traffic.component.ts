@@ -9,29 +9,28 @@ import { combineLatest, Subscription } from 'rxjs';
 })
 export class TrafficComponent implements OnInit, OnDestroy {
 
-  isRedOn: boolean = false;
-  isYellowOn: boolean = false;
-  isGreenOn: boolean = false;
+
+  public isSelected: boolean = false;
+  public selectedColor: string = 'red';
 
   private subscription!: Subscription;
 
   constructor(private trafficlightService: TrafficlightService) {}
 
   ngOnInit() {
-    this.subscription = combineLatest([
-      this.trafficlightService.getIsActivated(),
-      this.trafficlightService.getActiveColor()
-    ]).subscribe(([isActivated, activeColor]) => {
-      if (isActivated) {
-        this.isRedOn = activeColor === 'red';
-        this.isYellowOn = activeColor === 'yellow';
-        this.isGreenOn = activeColor === 'green';
-      } else {
-        this.isRedOn = false;
-        this.isYellowOn = false;
-        this.isGreenOn = false;
+    this.subscription = this.trafficlightService.getActiveColor().subscribe(
+      (color) => {
+        this.selectedColor = color;
       }
-    });
+      );
+
+    this.subscription = this.trafficlightService.getIsActivated().subscribe(
+      (isActivated) => {
+        this.isSelected = isActivated;
+      }
+    )
+  
+
   }
 
   ngOnDestroy(): void {

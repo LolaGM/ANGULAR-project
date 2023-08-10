@@ -30,18 +30,18 @@
         0 0 10px #0275d8;
 }
 
-.trafficlight.is-on .red,
-.trafficlight.is-on .yellow,
-.trafficlight.is-on .green {
-    animation-play-state: running;
+
+
+.is-on.red{
     opacity: 1;
 }
 
-.trafficlight .red,
-.trafficlight .yellow,
-.trafficlight .green {
-    animation-play-state: paused;
-    opacity: 0.2;
+.is-on.yellow {
+    opacity: 1;
+}
+
+.is-on.green {
+    opacity: 1;
 }
 
 
@@ -61,7 +61,7 @@
         0 0 20px #111 inset,
         0 0 10px red;
     animation: red-animation infinite;
-
+    opacity: 0.2;
 }
 
 .yellow {
@@ -80,7 +80,7 @@
         0 0 20px #111 inset,
         0 0 10px yellow;
     animation: yellow-animation infinite;
-
+    opacity: 0.2;
 }
 
 .green {
@@ -98,6 +98,7 @@
         0 0 20px #111 inset,
         0 0 10px lime;
     animation: green-animation infinite;
+    opacity: 0.2;
 }
 
 

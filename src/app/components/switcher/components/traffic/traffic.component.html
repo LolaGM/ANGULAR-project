@@ -1,8 +1,8 @@
-<div class="trafficlight light"  [ngClass]="{'is-on': isRedOn || isYellowOn || isGreenOn}">
-    <div class="protector"></div>
-    <div class="protector"></div>
-    <div class="protector"></div>
-    <div class="red" [ngClass]="{'is-on': isRedOn}"></div>
-    <div class="yellow" [ngClass]="{'is-on': isYellowOn}"></div>
-    <div class="green" [ngClass]="{'is-on': isGreenOn}"></div>
+<div class="trafficlight light">
+  <div class="protector"></div>
+  <div class="protector"></div>
+  <div class="protector"></div>
+  <div class="red" [ngClass]="{'is-on': isSelected && selectedColor === 'red' }"></div>
+  <div class="yellow" [ngClass]="{'is-on': isSelected && selectedColor === 'yellow' }"></div>
+  <div class="green" [ngClass]="{'is-on': isSelected && selectedColor === 'green' }"></div>
 </div>

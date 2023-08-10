@@ -1,31 +1,27 @@
-// color.service.ts
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
 })
+
 export class TrafficlightService {
-
-    private activeColorSubject = new Subject<string>();
     private isActivatedSubject = new Subject<boolean>();
-
-    getIsActivated(): Observable<boolean> {
-        return this.isActivatedSubject.asObservable();
-    }
+    private activeColorSubject = new Subject<string>();
 
     setIsActivated(activated: boolean) {
         this.isActivatedSubject.next(activated);
     }
 
-    getActiveColor(): Observable<string> {
-        return this.activeColorSubject.asObservable();
+    getIsActivated(): Observable<boolean> {
+        return this.isActivatedSubject.asObservable();
     }
 
     setActiveColor(color: string) {
         this.activeColorSubject.next(color);
     }
 
-    
-
+    getActiveColor(): Observable<string> {
+        return this.activeColorSubject.asObservable();
+    }
 }

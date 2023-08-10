@@ -1,19 +1,16 @@
-
 <div class="light-controller" >
-    <div>
-        <label>Color:</label>
-        <select class="select-controller" [(ngModel)]="selectedColor" (change)="onColorChange(selectedColor)">
-            <option value="red">Red</option>
-            <option value="yellow">Yellow</option>
-            <option value="green">Green</option>
-        </select>
-    </div>
-    
-    <div class="check-controller" >
-        <label>
-            <input type="checkbox"  (click)="onColorActivation()">
-                Turn on / Turn off
-        </label>
-        
-    </div>
+  <div>
+    <label>Color:</label>
+    <select class="select-controller" (change)="onChangeColor($event)">
+      <option value="red">Red</option>
+      <option value="yellow">Yellow</option>
+      <option value="green">Green</option>
+    </select>
+  </div>
+  <div class="check-controller" >
+    <label>
+      <input type="checkbox" [(ngModel)]="isTrafficLightOn" (click)="onColorActivation()">
+      Turn on / Turn off
+    </label>
+  </div>
 </div>
