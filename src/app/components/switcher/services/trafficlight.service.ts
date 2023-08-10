@@ -6,6 +6,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 })
 
 export class TrafficlightService {
+    
     private isActivatedSubject = new Subject<boolean>();
     private activeColorSubject = new Subject<string>();
 

@@ -10,7 +10,7 @@
   <div class="check-controller" >
     <label>
       <input type="checkbox" [(ngModel)]="isTrafficLightOn" (click)="onColorActivation()">
-      Turn on / Turn off
+      {{ isTrafficLightOn ?  'Turn off' : 'Turn on' }}
     </label>
   </div>
 </div>

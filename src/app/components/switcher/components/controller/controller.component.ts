@@ -7,17 +7,12 @@ import { Subscription } from 'rxjs';
   templateUrl: './controller.component.html',
   styleUrls: ['./controller.component.css']
 })
-export class ControllerComponent implements OnInit, OnDestroy {
+export class ControllerComponent implements OnDestroy {
 
   public isTrafficLightOn: boolean = false;
   private subscription!: Subscription;
 
   constructor(private trafficlightService: TrafficlightService) {}
-
-  ngOnInit(): void {
-  
-  }  
-
 
   onChangeColor(event: Event): void {
     const color = (event.target as HTMLSelectElement).value;
