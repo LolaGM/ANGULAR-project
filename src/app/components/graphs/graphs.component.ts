@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartsService } from './services/charts.service';
 
 @Component({
   selector: 'app-graphs',
