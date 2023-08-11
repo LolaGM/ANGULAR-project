@@ -78,6 +78,7 @@ export class BarChartComponent  {
               display: false 
             },
             ticks: {
+              color: '#01539A',
               font: {
                 family: 'Kanit, sans-serif',
                 size: 10,
@@ -88,6 +89,7 @@ export class BarChartComponent  {
           y: {
             beginAtZero: true,
             ticks: {
+              color: '#01539A',
               font: {
                 family: 'Kanit, sans-serif',
                 size: 10,
