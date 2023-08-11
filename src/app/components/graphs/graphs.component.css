@@ -5,3 +5,16 @@
     font-family: 'Kanit', sans-serif;
     font-weight: 700;
 }
+
+.charts-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    border: 2px solid #0275d8;
+    border-radius: 10px;
+    padding: 2% 4%;
+    margin-left: 12%;
+    margin-right: 12%;
+    margin-top: 1%;
+}

@@ -33,6 +33,11 @@ import { ControllerComponent } from './components/switcher/components/controller
 import { TrafficlightService } from './components/switcher/services/trafficlight.service';
 import { SwitcherModule } from './components/switcher/switcher.module';
 
+import { BarChartComponent } from './components/graphs/components/bar-chart/bar-chart.component';
+import { LineChartComponent } from './components/graphs/components/line-chart/line-chart.component';
+import { ChartsService } from './components/graphs/services/charts.service';
+
+
 
 @NgModule({
   declarations: [
@@ -51,7 +56,9 @@ import { SwitcherModule } from './components/switcher/switcher.module';
     FormComponent,
     TablaCRUDComponent,
     TrafficComponent,
-    ControllerComponent
+    ControllerComponent,
+    BarChartComponent,
+    LineChartComponent
   
 
   ],
@@ -64,7 +71,7 @@ import { SwitcherModule } from './components/switcher/switcher.module';
     CommonModule,
     HttpClientModule,
     SearchOnMenuModule,
-    SwitcherModule
+    SwitcherModule,
 
   ],  
   
@@ -73,7 +80,9 @@ import { SwitcherModule } from './components/switcher/switcher.module';
   ValidatorsService,
   FormService,
   UserUpdatedService,
-  TrafficlightService
+  TrafficlightService,
+  ChartsService
+
 
   ],
 
