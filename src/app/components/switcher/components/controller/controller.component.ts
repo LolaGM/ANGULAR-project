@@ -25,6 +25,7 @@ export class ControllerComponent implements OnDestroy {
   onColorActivation() {
     console.log('Before toggle: isTrafficLightOn =', this.isTrafficLightOn);  
     this.isTrafficLightOn = !this.isTrafficLightOn;
+    
     this.trafficlightService.setIsActivated(this.isTrafficLightOn);  
     console.log('After toggle: isTrafficLightOn =', this.isTrafficLightOn);
   }

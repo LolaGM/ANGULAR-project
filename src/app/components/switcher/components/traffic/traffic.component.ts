@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TrafficlightService } from '../../services/trafficlight.service';
-import { combineLatest, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-traffic',
@@ -29,8 +29,6 @@ export class TrafficComponent implements OnInit, OnDestroy {
         this.isSelected = isActivated;
       }
     )
-  
-
   }
 
   ngOnDestroy(): void {
