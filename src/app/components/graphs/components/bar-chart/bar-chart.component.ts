@@ -17,23 +17,20 @@ export class BarChartComponent  {
   constructor(private chartsService: ChartsService) { }
 
   ngOnInit(): void {
-    this.chartsService.getCountries().subscribe(
+    this.chartsService.getEuropeanCountries().subscribe(
       (countries: Country[]) => { 
-        const europeCountries = countries.filter((country) =>
-          country.region === 'Europe'
-        );
-        const countryLabels = europeCountries.map(
+        const countryLabels = countries.map(
           (country) => country.name.common
         );
-        const populationData = europeCountries.map(
+        const populationData = countries.map(
           (country) => country.population
         );
-
+  
         const canvas = this.europePopulationCanvas.nativeElement;
         const ctx = canvas.getContext('2d');
-
+  
         if (ctx) {
-          this.setupEuropePopulationChart(
+          this.createEuropePopulationChart(
             ctx,
             countryLabels,
             populationData
@@ -42,24 +39,21 @@ export class BarChartComponent  {
           console.error('Canvas context is null.');
         }
       },
-      (error) => {
-        console.error('Error getting population data:', error);
-      }
     );
   }
-
-  setupEuropePopulationChart(
-    ctx: Chart,
+  
+  createEuropePopulationChart(
+    ctx: CanvasRenderingContext2D,
     labels: string[],
     data: number[]
-    ): void {
+  ): void {
     new Chart(ctx, {
       type: 'bar',
       data: {
         labels: labels,
         datasets: [
           {
-            label: 'European population in millions',
+            label: 'European Population',
             data: data,
             backgroundColor: '#0275d8',
           }
@@ -73,39 +67,43 @@ export class BarChartComponent  {
                 family: 'Kanit, sans-serif',
                 weight: 'bold',
                 size: 18,
-              }
+              },
+              color: '#01539A' 
             }
           }
         },
         scales: {
           x: {
+            grid: {
+              display: false 
+            },
             ticks: {
               font: {
                 family: 'Kanit, sans-serif',
-                size: 10, 
+                size: 10,
+                weight: 'normal',
               }
-            },
-            grid: {
-              display: false
             }
           },
           y: {
             beginAtZero: true,
             ticks: {
-              callback: function (value: string | number) {
-                return typeof value === 'number' ? value.toLocaleString() : value;
-              },
               font: {
                 family: 'Kanit, sans-serif',
-                size: 12,
+                size: 10,
                 weight: 'bold',
-
+              },
+              maxRotation: 0,
+              minRotation: 0, 
+              autoSkip: false, 
+              padding: 10,
+              callback: function (value: string | number) {
+                return typeof value === 'number' ? value.toLocaleString() : value;
               }
             }
           }
         }
       }
     });
-    
   }
 }

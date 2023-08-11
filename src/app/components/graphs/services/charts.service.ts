@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Country } from '../interfaces/country.interface';
 
 
@@ -18,6 +18,15 @@ export class ChartsService {
 
   getCountries(): Observable<Country[]> {
     return this.http.get<Country[]>(this.apiUrl);
+  }
+
+  getEuropeanCountries(): Observable<Country[]> {
+    return this.http.get<Country[]>(this.apiUrl)
+      .pipe(
+        map((countries: Country[]) => {
+          return countries.filter(country => country.region === 'Europe');
+        })
+    );
   }
 
 }
