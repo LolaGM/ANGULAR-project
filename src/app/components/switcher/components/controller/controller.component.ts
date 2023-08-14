@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { TrafficlightService } from '../../services/trafficlight.service';
-import { Subscription } from 'rxjs';
+import { Subscription, interval, takeWhile } from 'rxjs';
 
 @Component({
   selector: 'app-controller',
@@ -10,11 +10,14 @@ import { Subscription } from 'rxjs';
 export class ControllerComponent implements OnDestroy {
 
   public isTrafficLightOn: boolean = false;
-  private subscription!: Subscription;
+  private intervalSubscription!: Subscription;
+
+  private colorArray: string[] = ['red', 'yellow', 'green'];
+  private colorIndex: number = 0;
 
   constructor(private trafficlightService: TrafficlightService) {}
 
-  onChangeColor(event: Event): void {
+  onChangeColor(event: Event): void {    
     const color = (event.target as HTMLSelectElement).value;
 
     this.trafficlightService.setActiveColor(color);
@@ -26,13 +29,33 @@ export class ControllerComponent implements OnDestroy {
     this.isTrafficLightOn = !this.isTrafficLightOn;
     
     this.trafficlightService.setIsActivated(this.isTrafficLightOn);  
+
+    if (this.isTrafficLightOn) {
+      this.startTrafficLight();
+    } else {
+      this.stopTrafficLight();
+    }
+
     console.log('After toggle: isTrafficLightOn =', this.isTrafficLightOn);
   }
-  
+
+  //temporizador del semáforo
+  private startTrafficLight(): void {
+    this.intervalSubscription = interval(1500)
+      .pipe(takeWhile(() => this.isTrafficLightOn))
+      .subscribe(() => {
+        this.colorIndex = (this.colorIndex + 1) % this.colorArray.length;
+        this.trafficlightService.setActiveColor(this.colorArray[this.colorIndex]);
+      });
+  }
+
+  private stopTrafficLight(): void {
+    if (this.intervalSubscription) {
+      this.intervalSubscription.unsubscribe();
+    }
+  }
 
   ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
+    this.stopTrafficLight();
   }
 }
