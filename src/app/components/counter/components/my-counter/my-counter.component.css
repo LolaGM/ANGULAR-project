@@ -1,4 +1,10 @@
 
+.counter{
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
 .counter-buttons-container{
     margin-top: 10%;

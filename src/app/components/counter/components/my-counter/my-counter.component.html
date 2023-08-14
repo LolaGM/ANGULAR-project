@@ -1,16 +1,20 @@
-<h1>Counter: {{ counter$ | async }} </h1>
+<div class="counter">
+    <h2>Counter: </h2>
+    <h2>{{ counterValue }}</h2>
+</div>
+
 
 <div class="counter-buttons-container">
     <h6>Set up</h6>
-    <button class="btn btn-primary">Start</button>
-    <button class="btn btn-primary">Pause</button>
-    <button class="btn btn-primary">Reset</button>
+    <button (click)="onStartCount()" class="btn btn-primary">Start</button>
+    <button (click)="onPauseCount()" class="btn btn-primary">Pause</button>
+    <button (click)="onResetCount()" class="btn btn-primary">Reset</button>
 </div>
 
 <div class="counter-up-down-container">
     <h6>Counter</h6>
-    <button class="btn btn-success">Count up</button>
-    <button class="btn btn-warning">Count down</button>
+    <button (click)="onCountUp()" class="btn btn-success">Count up</button>
+    <button (click)="onCountDown()" class="btn btn-warning">Count down</button>
 </div>
 
 <div class="set-to-container">
@@ -23,6 +27,6 @@
 <div class="step-container">
     <label for="referenceNumber">Step:</label>
     <div>
-        <input class="input-step-number" type="number">
+        <input class="input-step-number" type="number" [(ngModel)]="referenceNumber">
     </div>
 </div>
