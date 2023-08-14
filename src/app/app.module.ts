@@ -37,6 +37,8 @@ import { BarChartComponent } from './components/graphs/components/bar-chart/bar-
 import { LineChartComponent } from './components/graphs/components/line-chart/line-chart.component';
 import { ChartsService } from './components/graphs/services/charts.service';
 
+import { MyCounterComponent } from './components/counter/components/my-counter/my-counter.component';
+
 
 
 @NgModule({
@@ -58,7 +60,8 @@ import { ChartsService } from './components/graphs/services/charts.service';
     TrafficComponent,
     ControllerComponent,
     BarChartComponent,
-    LineChartComponent
+    LineChartComponent,
+    MyCounterComponent
   
 
   ],
