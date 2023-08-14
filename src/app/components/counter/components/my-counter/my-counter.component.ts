@@ -12,6 +12,7 @@ export class MyCounterComponent implements OnInit, OnDestroy {
   public referenceNumber:number = 1;
   private counterSubject = new BehaviorSubject<number>(0);
   private counterSubscription!: Subscription;
+  
   public counterValue!: number;
   public initialValue: number = 0; 
 
@@ -22,11 +23,9 @@ export class MyCounterComponent implements OnInit, OnDestroy {
   public decrementCount: number = 1;
   private countDownSubscription: Subscription | undefined;
 
-  
   constructor(){
     this.counter$ = this.counterSubject.asObservable();
   }
-  
 
   ngOnInit(): void {
     this.counterSubscription = this.counter$
@@ -42,7 +41,6 @@ export class MyCounterComponent implements OnInit, OnDestroy {
       this.counting = true;
       this.countingUp = true;
       
-      // Utilizar el valor inicial directamente
       this.counterValue = this.initialValue;
       
       this.counterSubscription = interval(1000) 
@@ -57,6 +55,7 @@ export class MyCounterComponent implements OnInit, OnDestroy {
           }
           this.counterSubject.next(this.counterValue);
         });
+
     } else {
       this.onPauseCount();
     }
