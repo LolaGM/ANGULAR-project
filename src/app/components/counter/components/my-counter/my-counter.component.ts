@@ -10,17 +10,17 @@ export class MyCounterComponent implements OnInit, OnDestroy {
   
   public counter$: Observable<number>;
   public referenceNumber:number = 1;
-
   private counterSubject = new BehaviorSubject<number>(0);
   private counterSubscription!: Subscription;
   public counterValue!: number;
 
   private counting: boolean = false;
+  private countingUp: boolean = false;
+
 
   public incrementCount: number = 1;
   public decrementCount: number = 1;
   private countDownSubscription: Subscription | undefined;
-
 
   
   constructor(){
@@ -40,20 +40,30 @@ export class MyCounterComponent implements OnInit, OnDestroy {
   onStartCount() {
     if (!this.counting) {
       this.counting = true;
+      this.countingUp = true; 
+      this.counterValue = 0;
       this.counterSubscription = interval(1000) 
         .pipe(
-          map(count => count * this.referenceNumber),
           takeWhile(() => this.counting) 
         )
-        .subscribe(count => {
-          this.counterValue = count;
-          this.counterSubject.next(count);
+        .subscribe(() => {
+          if (this.countingUp) {
+            this.counterValue += this.referenceNumber;
+          } else {
+            this.counterValue -= this.referenceNumber;
+          }
+          this.counterSubject.next(this.counterValue);
         });
+    } else {
+      this.onPauseCount();
     }
   }
 
+
   onPauseCount() {
     this.counting = false;
+    this.stopCountDown(); 
+
   }
 
   onResetCount() {
@@ -63,24 +73,25 @@ export class MyCounterComponent implements OnInit, OnDestroy {
   }
 
   onCountUp(){
+    this.stopCountDown(); 
+    this.countingUp = true; 
     this.counterValue += this.incrementCount;
     this.counterSubject.next(this.counterValue);
   }
 
   onCountDown(){
-    if (!this.countDownSubscription) {
-      this.countDownSubscription = interval(1000)
-        .pipe(
-          map(count => this.counterValue - (count + 1) * this.decrementCount), 
-          takeWhile(count => count >= 0)
-        )
-        .subscribe(count => {
-          this.counterValue = count;
-          this.counterSubject.next(count);
-        });
+    this.stopCountDown(); 
+    this.countingUp = false; 
+    this.counterValue -= this.decrementCount;
+    this.counterSubject.next(this.counterValue);
+  }
+
+  stopCountDown() {
+    if (this.countDownSubscription) {
+      this.countDownSubscription.unsubscribe();
+      this.countDownSubscription = undefined;
     }
   }
-  
 
   ngOnDestroy(): void {
     if (this.counterSubscription) {
