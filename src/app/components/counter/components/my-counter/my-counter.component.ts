@@ -13,10 +13,10 @@ export class MyCounterComponent implements OnInit, OnDestroy {
   private counterSubject = new BehaviorSubject<number>(0);
   private counterSubscription!: Subscription;
   public counterValue!: number;
+  public initialValue: number = 0; 
 
   private counting: boolean = false;
   private countingUp: boolean = false;
-
 
   public incrementCount: number = 1;
   public decrementCount: number = 1;
@@ -40,8 +40,11 @@ export class MyCounterComponent implements OnInit, OnDestroy {
   onStartCount() {
     if (!this.counting) {
       this.counting = true;
-      this.countingUp = true; 
-      this.counterValue = 0;
+      this.countingUp = true;
+      
+      // Utilizar el valor inicial directamente
+      this.counterValue = this.initialValue;
+      
       this.counterSubscription = interval(1000) 
         .pipe(
           takeWhile(() => this.counting) 

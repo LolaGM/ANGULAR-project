@@ -1,34 +1,44 @@
-
-.counter{
+.counter {
     text-align: left;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.counter-buttons-container{
-    margin-top: 10%;
-
-}
-
-
-.counter-up-down-container{
+.counter-buttons-container,
+.counter-up-down-container,
+.set-to-container,
+.step-container {
     margin-top: 10%;
 }
 
-
-.set-to-container{
-    margin-top: 10%;
+.counter-buttons-container button,
+.counter-up-down-container button {
+    margin-right: 1px;
 }
+
+.set-to-container div,
+.step-container div {
+    display: flex;
+    align-items: center;
+}
+
+.set-to-container label,
+.step-container label {
+    margin-right: 10px;
+}
+
+.set-to-container input,
+.step-container input {
+    width: 100%;
+}
+
 
 .input-set {
     color: #01539A;
 }
 
-.step-container{
-    margin-top: 10%;
-}
 
-.input-step-number{
+.input-step-number {
     color: #01539A;
 }

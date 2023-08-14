@@ -3,7 +3,6 @@
     <h2>{{ counterValue }}</h2>
 </div>
 
-
 <div class="counter-buttons-container">
     <h6>Set up</h6>
     <button (click)="onStartCount()" class="btn btn-primary">Start</button>
@@ -18,9 +17,9 @@
 </div>
 
 <div class="set-to-container">
-    <label for="referenceNumber">Set to:</label>
+    <label for="initialValue">Set to:</label>
     <div>
-        <input class="input-set" type="text" value="0">
+        <input class="input-set" type="number" [(ngModel)]="initialValue">
     </div>
 </div>
 
