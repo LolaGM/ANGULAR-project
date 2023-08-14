@@ -7,10 +7,10 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 export class TrafficlightService {
     
-    private isActivatedSubject = new Subject<boolean>();
-    private activeColorSubject = new Subject<string>();
+    private activeColorSubject = new BehaviorSubject<string>('red');
+    private isActivatedSubject = new BehaviorSubject<boolean>(false);
 
-    setIsActivated(activated: boolean) {
+    setIsActivated(activated: boolean): void {
         this.isActivatedSubject.next(activated);
     }
 
@@ -18,7 +18,7 @@ export class TrafficlightService {
         return this.isActivatedSubject.asObservable();
     }
 
-    setActiveColor(color: string) {
+    setActiveColor(color: string): void{
         this.activeColorSubject.next(color);
     }
 

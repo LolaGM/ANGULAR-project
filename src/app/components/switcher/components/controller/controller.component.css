@@ -8,6 +8,12 @@
     padding: 6%;
 }
 
+.check-controller {
+    display: flex;
+    gap: 10px;
+    font-family: 'Kanit', sans-serif;
+    color: #01539A;
+}
 
 .select-controller{
     margin-right: 5%;

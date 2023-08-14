@@ -19,7 +19,6 @@ export class ControllerComponent implements OnDestroy {
 
     this.trafficlightService.setActiveColor(color);
     console.log(color);
-
   }
 
   onColorActivation() {

@@ -7,10 +7,8 @@
       <option value="green">Green</option>
     </select>
   </div>
-  <div class="check-controller" >
-    <label>
-      <input type="checkbox" [(ngModel)]="isTrafficLightOn" (click)="onColorActivation()">
-      {{ isTrafficLightOn ?  'Turn off' : 'Turn on' }}
-    </label>
+  <div class="check-controller">
+    <input type="checkbox" [(ngModel)]="isTrafficLightOn" (click)="onColorActivation()">
+    <span>{{ isTrafficLightOn ? 'Turn off' : 'Turn on' }}</span>
   </div>
 </div>
