@@ -5,10 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './search-on.component.html',
   styleUrls: ['./search-on.component.css']
 })
-export class SearchOnComponent implements OnInit {
+export class SearchOnComponent   {
   
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
 
 }

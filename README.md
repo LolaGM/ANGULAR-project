@@ -7,10 +7,10 @@
 <ul>
 <li>Display/Hide</li>
 <li>Components communication</li>
-<li>CRUD and Reactive Forms</li>
-<li>Search on typing</li>
+<li>CRUD and Reactive Forms + JSON server as fake database</li>
+<li>Search on typing + API TMDB</li>
 <li>Light Switcher (Traffic Lights)</li>
-<li>External library with public API data: Graphs</li>
+<li>External library with public API data: Graphs + API rest Countries</li>
 <li>Counter</li>
 </ul>
 

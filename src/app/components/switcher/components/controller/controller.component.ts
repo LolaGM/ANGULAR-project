@@ -15,13 +15,13 @@ export class ControllerComponent implements OnDestroy {
   private colorArray: string[] = ['red', 'yellow', 'green'];
   private colorIndex: number = 0;
 
+  public selectedColor: string = 'red';
+
   constructor(private trafficlightService: TrafficlightService) {}
 
   onChangeColor(event: Event): void {    
-    const color = (event.target as HTMLSelectElement).value;
-
-    this.trafficlightService.setActiveColor(color);
-    console.log(color);
+    this.trafficlightService.setActiveColor(this.selectedColor);
+    console.log(this.selectedColor);
   }
 
   onColorActivation() {

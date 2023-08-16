@@ -38,7 +38,7 @@
       "email": "maria@google.com",
       "wantNotifications": false,
       "country": "Spain",
-      "city": "Logroños"
+      "city": "Logroño"
     },
     {
       "id": 7,
@@ -57,8 +57,8 @@
       "password2": "123456",
       "email": "palo@google.com",
       "wantNotifications": false,
-      "country": "Marshall Islands (the)",
-      "city": "Mexico"
+      "country": "Mexico",
+      "city": "Mexico DF"
     },
     {
       "id": 11,
@@ -68,7 +68,7 @@
       "email": "carmen@google.com",
       "wantNotifications": false,
       "country": "China",
-      "city": "Cali"
+      "city": "Beijing"
     },
     {
       "id": 12,
@@ -81,16 +81,6 @@
       "city": "Kiev"
     },
     {
-      "id": 14,
-      "name": "Exito",
-      "password1": "123456",
-      "password2": "123456",
-      "email": "exito@google.com",
-      "wantNotifications": true,
-      "country": "Curaçao",
-      "city": "Quito"
-    },
-    {
       "id": 15,
       "name": "Xia",
       "password1": "123456",
@@ -98,7 +88,7 @@
       "email": "xia@xia.com",
       "wantNotifications": null,
       "country": "China",
-      "city": "Santiago"
+      "city": "Beijing"
     }
   ]
 }
