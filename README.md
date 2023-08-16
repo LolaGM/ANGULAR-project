@@ -18,10 +18,14 @@
 
 
 <h2>2. Dev commands and instructions</h2>
-1. Clone thep project using ````git clone```
-2. Use  ```npm install``` to bring dependencies
-3. Run backend using the command  ```npm run backend``` (do not forget to add in package.json  this command)
-4. Build the app using ```npm start``` or ```ng s -o```
+<ol>
+<li>Clone thep project using ````git clone```</li>
+<li>Use  ```npm install``` to bring dependencies</li>
+<li>Run backend using the command  ```npm run backend``` (do not forget to add in package.json  this command)</li>
+<li>Build the app using ```npm start``` or ```ng s -o```</li>
+<li>Use  ```npm run backend ``` to use JSON server</li>
+</ol>
+
 
 <h2>3. Stacks and technologies used</h2>
 <p align="left">    
