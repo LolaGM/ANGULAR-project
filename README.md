@@ -14,6 +14,9 @@
 <li>Counter</li>
 </ul>
 
+![angular_video_med](https://github.com/LolaGM/ANGULAR-project/assets/116545851/fd41ec02-399b-4d9c-bdf3-83aa7d10229a)
+
+
 <h2>2. Dev commands and instructions</h2>
 1. Clone thep project using ````git clone```
 2. Use  ```npm install``` to bring dependencies
